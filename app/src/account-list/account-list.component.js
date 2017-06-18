@@ -13,7 +13,7 @@
         vm.onReorder = onReorder;
         vm.routeTo = routeTo;
         vm.userData = AuthService.getUser();
-        vm.clients = getClients();//@todo check if this is behind the 2 calls
+        vm.clientId = getClient();//@todo check if this is behind the 2 calls
         vm.accounts = [];
         vm.loanAccounts = [];
         vm.savingsAccounts = [];
@@ -25,11 +25,11 @@
             offset: 1
         };
 
-        function getClients() {
-            AccountService.getClients().get().$promise.then(function (res) {
-                vm.clients = res;
-                getAccounts(res.pageItems[0].id);
-            })
+        function getClient() {
+            AccountService.getClientId().then(function (clientId) {
+                vm.clientId = clientId;
+                getAccounts(clientId);
+            });
         }
 
         function getAccounts(accountNo) {
@@ -47,18 +47,6 @@
 
         function onReorder(order) {
             getAccounts(angular.extend({}, vm.query, {order: order}));
-        }
-
-        function routeTo(accountType, id) {
-            var routingSlug = 'viewloanaccount';
-            if ('savings' == accountType) {
-                routingSlug = 'viewsavingsaccount';
-            } else if ('loan' == accountType) {
-                routingSlug = 'viewloanaccount';
-            } else {
-                routingSlug = 'viewshareaccount';
-            }
-            $location.path('/app/' + routingSlug + '/' + id);
         }
 
         function routeTo(accountType, id) {
