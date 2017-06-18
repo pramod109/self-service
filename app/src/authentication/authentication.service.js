@@ -61,6 +61,7 @@
             userData = '';
             isAuthenticated = false;
             setAccessToken('');
+            storageService.clear();
             $state.go('login');
         }
 
