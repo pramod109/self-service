@@ -11,7 +11,7 @@
       'ngMaterial', 
       'nvd3',
       'md.data.table'
-      
+
     ])
 
 })();
