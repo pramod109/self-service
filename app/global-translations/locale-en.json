@@ -1,0 +1,12 @@
+{
+  "login.heading.logintoyouraccount" : "Login to your account",
+  "login.btn.login": "Login",
+
+  "nav.msg.welcome": "Welcome,",
+  "nav.label.accounts": "Accounts",
+  "nav.label.recenttransactions": "Recent Transactions",
+  "nav.label.charges": "Charges",
+  "nav.label.transfers": "Transfers",
+  "nav.label.aboutus": "About us",
+  "nav.label.help": "Help"
+}

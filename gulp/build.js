@@ -84,7 +84,10 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('misc', function () {
-    return gulp.src(paths.src + '/**/*.ico')
+    return gulp.src([
+        paths.src + '/**/*.ico',
+        paths.src + '/**/locale-*.json'
+    ])
         .pipe(gulp.dest(paths.dist + '/'));
 });
 
