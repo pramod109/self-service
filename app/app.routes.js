@@ -53,7 +53,7 @@
                 })
                 .state('app.recenttransactions', {
                     url: '/recenttransactions',
-                    templateUrl: 'src/recent-transaction/recent-transaction.html',
+                    templateUrl: 'src/recent-transactions/recent-transactions.html',
                     controller: 'RecentTransactionCtrl',
                     controllerAs: 'vm',
                     data: {
