@@ -111,6 +111,17 @@
                         authorizedRoles: [USER_ROLES.user]
                     }
                 })
+                .state('app.beneficiarieslist', {
+                    url: '/beneficiaries/list',
+                    templateUrl: 'src/beneficiaries/beneficiaries-list/beneficiaries-list.html',
+                    controller: 'BeneficiariesListCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'Beneficiaries List',
+                        authorizedRoles: [USER_ROLES.user]
+                    }
+
+                })
                 .state('login', {
                     url: '/login',
                     templateUrl: 'src/authentication/authentication.html',
