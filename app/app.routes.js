@@ -120,6 +120,16 @@
                         title: 'Beneficiaries List',
                         authorizedRoles: [USER_ROLES.user]
                     }
+                })
+                .state('app.addbeneficiary', {
+                    url: '/beneficiaries/add',
+                    templateUrl: 'src/beneficiaries/beneficiaries-add/beneficiaries-add.html',
+                    controller: 'BeneficiariesAddCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'Add Beneficiary',
+                        authorizedRoles: [USER_ROLES.user]
+                    }
 
                 })
                 .state('login', {

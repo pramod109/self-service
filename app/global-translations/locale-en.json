@@ -45,6 +45,7 @@
   "label.heading.beneficiariesList": "Beneficiaries List",
   "label.heading.clientName": "Client Name",
   "label.heading.transferLimit": "Transfer Limit",
+  "label.heading.addbeneficiaries": "Add Beneficiary",
 
 
   "label.msg.loadingCharges": "Loading Charges",
@@ -57,8 +58,14 @@
   "label.input.amount": "Amount",
   "label.input.transferDate": "Transfer Date",
   "label.input.remark": "Remark",
+  "label.input.beneficiaryName": "Beneficiary Name",
+  "label.input.officeName": "Office Name",
+  "label.input.accountNumber": "Account Number",
+  "label.input.transferLimit": "Transfer Limit",
+  "label.input.accountType": "Account Type",
 
   "label.btn.cancel": "Cancel",
-  "label.btn.reviewTransfer": "Review Transfer"
+  "label.btn.reviewTransfer": "Review Transfer",
+  "label.btn.addBeneficiary": "Add Beneficiary"
 
 }
