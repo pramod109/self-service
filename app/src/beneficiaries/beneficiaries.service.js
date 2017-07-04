@@ -15,7 +15,7 @@
         }
 
         this.beneficiary = function () {
-            return $resource(BASE_URL + '/self/beneficiaries/tpt');
+            return $resource(BASE_URL + '/self/beneficiaries/tpt/:id');
         }
     }
 

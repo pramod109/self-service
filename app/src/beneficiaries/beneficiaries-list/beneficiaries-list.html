@@ -27,6 +27,7 @@
                         <th md-column md-order-by="name"><span>{{ 'label.heading.name' | translate }}</span></th>
                         <th md-column md-order-by="officeName">{{ 'label.heading.officeName' | translate }}</th>
                         <th md-column md-numeric md-order-by="clientName">{{ 'label.heading.clientName' | translate }}</th>
+                        <th md-column>{{ 'label.heading.actions' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody md-body>
@@ -39,6 +40,11 @@
                         <td md-cell>{{ beneficiary.name }}</td>
                         <td md-cell>{{ beneficiary.officeName }}</td>
                         <td md-cell>{{ beneficiary.clientName }}</td>
+                        <td md-cell>
+                            <md-button class="md-warn" ng-click="vm.deleteConfirm($event, beneficiary)">
+                                <md-icon class="material-icons">delete</md-icon>
+                            </md-button>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

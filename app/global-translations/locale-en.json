@@ -46,6 +46,7 @@
   "label.heading.clientName": "Client Name",
   "label.heading.transferLimit": "Transfer Limit",
   "label.heading.addbeneficiaries": "Add Beneficiary",
+  "label.heading.actions": "Actions",
 
 
   "label.msg.loadingCharges": "Loading Charges",
@@ -67,5 +68,4 @@
   "label.btn.cancel": "Cancel",
   "label.btn.reviewTransfer": "Review Transfer",
   "label.btn.addBeneficiary": "Add Beneficiary"
-
 }
