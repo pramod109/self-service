@@ -205,12 +205,16 @@ md-toolbar .md-menu {
 }
 .logo {
   text-align: center;
-  margin-top: 5vh;
+  margin-top: 2vh;
 }
 
 @media (min-width: 960px) {
   .login-container{
     box-shadow: 1px 1px 80px black;
+    
+    .translate-container {
+      padding: 0 16px;
+    }
   }
 }
 
