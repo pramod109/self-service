@@ -6,11 +6,11 @@
         .config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
 
             $urlRouterProvider
-                .otherwise('/login');
+                .when('','/')
+                .otherwise('/404');
 
             $stateProvider
                 .state('app', {
-                    url: '/app',
                     abstract: true,
                     templateUrl: 'src/common/main.html',
                     controller: 'MainCtrl',
@@ -19,8 +19,12 @@
                         authorizedRoles: [USER_ROLES.user]
                     }
                 })
+                .state('404', {
+                    url: '/404',
+                    templateUrl: 'src/common/404.html',
+                })
                 .state('app.dashboard', {
-                    url: '/dashboard',
+                    url: '/',
                     templateUrl: 'src/common/dashboard.html',
                     controller: 'MainCtrl',
                     controllerAs: 'vm',
@@ -150,7 +154,7 @@
                     data: {
                         title: 'Login'
                     }
-                });
+                })
             }
         )
 })();
