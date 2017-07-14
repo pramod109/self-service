@@ -1,0 +1,81 @@
+<div layout="row" class="md-padding loan-account-detail-cont" flex>
+    <md-content flex ng-if="vm.loadingvm.savingsAccountDetailsInfo">
+        <div layout="row" flex>
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>Loading Savings Account Info...
+            <!--@todo Internationalize-->
+        </div>
+    </md-content>
+    <div layout="row" flex-gt-md="40">
+        <md-card class="summary-card">
+            <div class="heading {{ vm.statusClass }}">
+                <div layout="column" layout-align="center center" class="oustanding-overview">
+                    <span class="md-title">{{ vm.savingsAccountDetails.currency.displaySymbol }} {{ vm.savingsAccountDetails.summary.accountBalance}}</span>
+                    <span class="md-subhead">{{ 'label.heading.balance' | translate }}</span>
+                </div>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{ vm.savingsAccountDetails.savingsProductName }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-divider></md-divider>
+                <md-content class="md-padding">
+                    <p>Summary: </p>
+                    <table class="summary-table">
+                        <tbody md-table>
+                        <tr md-row>
+                            <td md-cell>{{ 'label.heading.accountNo' | translate}}</td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.accountNo}}</td>
+                        </tr>
+                        <tr md-row>
+                            <td>{{ 'label.heading.currency' | translate}}</td>
+                            <td class="value">{{ vm.savingsAccountDetails.currency.name}}</td>
+                        </tr>
+                        <tr md-row ng-if="vm.savingsAccountDetails.summary.totalDeposits">
+                            <td md-cell>Total Deposits </td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.currency.displaySymbol }} {{ vm.savingsAccountDetails.summary.totalDeposits }}</td>
+                        </tr>
+                        <tr md-row ng-if="vm.savingsAccountDetails.summary.totalWithdrawals">
+                            <td md-cell>Total Withdrawals </td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.currency.displaySymbol }} {{ vm.savingsAccountDetails.summary.totalWithdrawals }}</td>
+                        </tr>
+                        <tr md-row ng-if="vm.savingsAccountDetails.summary.totalInterestEarned">
+                            <td md-cell>Total Interest Earned </td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.currency.displaySymbol }} {{ vm.savingsAccountDetails.summary.totalInterestEarned }}</td>
+                        </tr>
+                        <tr md-row ng-if="vm.savingsAccountDetails.minRequiredOpeningBalance">
+                            <td md-cell>Required Opening Balance </td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.currency.displaySymbol }} {{ vm.savingsAccountDetails.minRequiredOpeningBalance }}</td>
+                        </tr>
+                        <tr md-row>
+                            <td md-cell>Submitted on </td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.timeline.submittedOnDate | DateFormat }}</td>
+                        </tr>
+                        <tr md-row>
+                            <td md-cell>Approved on </td>
+                            <td md-cell class="value">{{ vm.savingsAccountDetails.timeline.approvedOnDate | DateFormat }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </md-content>
+            </div>
+        </md-card>
+    </div>
+    <div layout="row" class="md-padding" flex-gt-md="60">
+        <md-tabs class="md-primary" md-dynamic-height md-border-bottom>
+            <md-tab label="Account Details">
+                <md-content class="md-padding">
+                    <div ng-if="vm.loadingSavingsAccount">
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>Loading Savings Account Info...
+                        <!--@todo Internationalize-->
+                    </div>
+                    <md-table-container>
+                        <table md-table md-progress="vm.promise">
+                            <tbody md-body>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </div>
+</div>
