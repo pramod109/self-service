@@ -48,6 +48,7 @@
   "label.heading.transferLimit": "Transfer Limit",
   "label.heading.addbeneficiaries": "Add Beneficiary",
   "label.heading.actions": "Actions",
+  "label.heading.editbeneficiaries": "Edit Beneficiary",
 
 
   "label.msg.loadingCharges": "Loading Charges",
@@ -68,5 +69,6 @@
 
   "label.btn.cancel": "Cancel",
   "label.btn.reviewTransfer": "Review Transfer",
-  "label.btn.addBeneficiary": "Add Beneficiary"
+  "label.btn.addBeneficiary": "Add Beneficiary",
+  "label.btn.editBeneficiary": "Edit Beneficiary"
 }

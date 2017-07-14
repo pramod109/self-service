@@ -1,4 +1,4 @@
-<div class="datatable-cont md-padding">
+<div id="beneficiaries-list" class="datatable-cont md-padding">
     <md-card>
         <md-card-title>
             <md-card-title-text>
@@ -40,8 +40,11 @@
                         <td md-cell>{{ beneficiary.name }}</td>
                         <td md-cell>{{ beneficiary.officeName }}</td>
                         <td md-cell>{{ beneficiary.clientName }}</td>
-                        <td md-cell>
-                            <md-button class="md-warn" ng-click="vm.deleteConfirm($event, beneficiary)">
+                        <td md-cell layout="row">
+                            <md-button ng-click="vm.goToEdit(beneficiary)" flex>
+                                <md-icon class="material-icons">edit</md-icon>
+                            </md-button>
+                            <md-button class="md-warn" ng-click="vm.deleteConfirm($event, beneficiary)" flex>
                                 <md-icon class="material-icons">delete</md-icon>
                             </md-button>
                         </td>

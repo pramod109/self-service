@@ -2,14 +2,15 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('BeneficiariesAddCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$mdToast', 'BeneficiariesService', BeneficiariesAddCtrl]);
+        .controller('BeneficiariesEditCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$mdToast', 'BeneficiariesService', BeneficiariesEditCtrl]);
 
-    function BeneficiariesAddCtrl($scope, $rootScope, $state, $stateParams, $mdToast, BeneficiariesService) {
+    function BeneficiariesEditCtrl($scope, $rootScope, $state, $stateParams, $mdToast, BeneficiariesService) {
 
         var vm = this;
-        vm.addBeneficiaryFormData = {
+        vm.editBeneficiaryFormData = {
             "locale": "en_GB"
         };
+        vm.beneficiary = $stateParams.data;
         vm.accountTypeOptions = [];
         vm.getBeneficiaryTemplate = getBeneficiaryTemplate();
         vm.clearForm = clearForm;
@@ -18,24 +19,36 @@
         function getBeneficiaryTemplate() {
             BeneficiariesService.template().get().$promise.then(function (data) {
                 vm.accountTypeOptions = data.accountTypeOptions;
-            })
+            });
+
+            if(vm.beneficiary !== null) {
+                vm.editBeneficiaryFormData.accountType = vm.beneficiary.accountType.id;
+                vm.editBeneficiaryFormData.accountNumber = vm.beneficiary.accountNumber;
+                vm.editBeneficiaryFormData.officeName = vm.beneficiary.officeName;
+                vm.editBeneficiaryFormData.transferLimit = vm.beneficiary.transferLimit;
+                vm.editBeneficiaryFormData.name = vm.beneficiary.name;
+            }
         }
 
         function clearForm() {
-            $scope.addBeneficiaryForm.$setPristine();
-            vm.addBeneficiaryFormData = {
+            $scope.editBeneficiaryForm.$setPristine();
+            vm.editBeneficiaryFormData = {
                 "locale": "en_GB"
             };
         }
 
         function submit() {
-            BeneficiariesService.beneficiary().save(vm.addBeneficiaryFormData).$promise.then(function () {
+            var data = {
+                name: vm.editBeneficiaryFormData.name,
+                transferLimit: vm.editBeneficiaryFormData.transferLimit
+            }
+
+            BeneficiariesService.beneficiary().update({id: vm.beneficiary.id}, data).$promise.then(function () {
                 $mdToast.show(
                     $mdToast.simple()
-                        .textContent('Beneficiary Added Successfully')
+                        .textContent('Beneficiary Updated Successfully')
                         .position('top right')
                 );
-                vm.clearForm();
             }, function (resp) {
                 var errors = '';
                 if(resp.data){
