@@ -10,12 +10,16 @@
             return $resource(BASE_URL + '/self/beneficiaries/tpt');
         };
 
-        this.addBeneficiariesTemplate = function() {
+        this.template = function() {
             return $resource(BASE_URL + '/self/beneficiaries/tpt/template');
         }
 
         this.beneficiary = function () {
-            return $resource(BASE_URL + '/self/beneficiaries/tpt/:id');
+            return $resource(BASE_URL + '/self/beneficiaries/tpt/:id',{id: '@id'},{
+                update: {
+                    method: 'PUT'
+                }
+            });
         }
     }
 

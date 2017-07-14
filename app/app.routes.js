@@ -146,6 +146,21 @@
                     }
 
                 })
+                .state('app.editbeneficiary', {
+                    url: '/beneficiaries/edit/:id',
+                    templateUrl: 'src/beneficiaries/beneficiaries-edit/beneficiaries-edit.html',
+                    controller: 'BeneficiariesEditCtrl',
+                    controllerAs: 'vm',
+                    params: {
+                        id: '',
+                        data: null
+                    },
+                    data: {
+                        title: 'Edit Beneficiary',
+                        authorizedRoles: [USER_ROLES.user]
+                    }
+
+                })
                 .state('login', {
                     url: '/login',
                     templateUrl: 'src/authentication/authentication.html',

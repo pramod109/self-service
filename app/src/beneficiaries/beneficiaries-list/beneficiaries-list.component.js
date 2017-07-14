@@ -18,6 +18,7 @@
 
         vm.getBeneficiaries = getBeneficiaries();
         vm.addBeneficiary = addBeneficiary;
+        vm.goToEdit = goToEdit;
         vm.deleteConfirm = deleteConfirm;
 
         function getBeneficiaries() {
@@ -29,6 +30,13 @@
 
         function addBeneficiary() {
             $state.go('app.addbeneficiary');
+        }
+
+        function goToEdit(beneficiary) {
+            $state.go('app.editbeneficiary',{
+                id: beneficiary.id,
+                data: beneficiary
+            });
         }
 
         function deleteConfirm(ev, beneficiary) {
