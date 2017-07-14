@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('AccountTransferCtrl', ['$scope', '$rootScope', '$stateParams', '$filter', '$mdDialog', '$mdDateLocale', '$mdToast', 'AccountService', 'AccountTransferService', AccountTransferCtrl]);
+        .controller('AccountTransferCtrl', ['$scope', '$filter', '$mdDialog', '$mdDateLocale', '$mdToast', 'AccountTransferService', AccountTransferCtrl]);
 
-    function AccountTransferCtrl($scope, $rootScope, $stateParams, $filter, $mdDialog, $mdDateLocale, $mdToast, AccountService, AccountTransferService) {
+    function AccountTransferCtrl($scope, $filter, $mdDialog, $mdDateLocale, $mdToast, AccountTransferService) {
 
         var vm = this;
         vm.fromAccountOptions = [];

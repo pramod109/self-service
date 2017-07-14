@@ -2,9 +2,9 @@
   'use strict';
 
     angular.module('selfService')
-        .service('AuthService', ['$q', '$http', '$rootScope', '$state', '$resource', 'storageService', 'BASE_URL', 'USER_ROLES', AuthService]);
+        .service('AuthService', ['$http', '$state', '$resource', 'storageService', 'BASE_URL', 'USER_ROLES', AuthService]);
 
-    function AuthService($q, $http, $rootScope, $state, $resource, storageService, BASE_URL, USER_ROLES) {
+    function AuthService($http, $state, $resource, storageService, BASE_URL, USER_ROLES) {
 
         var role            = '',
             userData        = '',       

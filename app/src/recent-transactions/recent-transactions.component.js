@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('RecentTransactionCtrl', ['$scope', '$rootScope', '$stateParams', 'AccountService', 'TransactionService', RecentTransactionCtrl]);
+        .controller('RecentTransactionCtrl', ['AccountService', 'TransactionService', RecentTransactionCtrl]);
 
-    function RecentTransactionCtrl($scope, $rootScope, $stateParams, AccountService, TransactionService) {
+    function RecentTransactionCtrl(AccountService, TransactionService) {
 
         var vm = this;
         vm.loadingTransactions 	= true;

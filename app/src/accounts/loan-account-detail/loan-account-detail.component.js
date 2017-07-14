@@ -2,9 +2,9 @@
 	'use strict';
 
 		angular.module('selfService')
-			.controller('LoanAccountViewCtrl', ['$scope', '$http','BASE_URL', '$rootScope', '$stateParams', '$filter', 'LoanAccountService', LoanAccountViewCtrl]);
+			.controller('LoanAccountViewCtrl', ['$stateParams', '$filter', 'LoanAccountService', LoanAccountViewCtrl]);
 
-		function LoanAccountViewCtrl($scope,$http,BASE_URL, $rootScope, $stateParams, $filter, LoanAccountService) {
+		function LoanAccountViewCtrl($stateParams, $filter, LoanAccountService) {
 
 			var vm = this;
 			vm.loadingLoanAccountInfo 	= true;

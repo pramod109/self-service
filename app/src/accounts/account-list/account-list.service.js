@@ -2,9 +2,9 @@
     'use strict';
     //@todo Move this service to the common folder
     angular.module('selfService')
-        .service('AccountService', ['$q', '$http', '$rootScope', '$resource', 'BASE_URL', 'storageService', AccountService]);
+        .service('AccountService', ['$resource', 'BASE_URL', 'storageService', AccountService]);
 
-    function AccountService($q, $http, $rootScope, $resource, BASE_URL, storageService) {
+    function AccountService($resource, BASE_URL, storageService) {
 
         /**
          * Get the clients associated with the current user's account.

@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('ChargesCtrl', ['$scope', '$rootScope', '$stateParams', 'AccountService', 'ChargesService', ChargesCtrl]);
+        .controller('ChargesCtrl', ['AccountService', 'ChargesService', ChargesCtrl]);
 
-    function ChargesCtrl($scope, $rootScope, $stateParams, AccountService, ChargesService) {
+    function ChargesCtrl(AccountService, ChargesService) {
 
         var vm = this;
         vm.loadingCharges = true;

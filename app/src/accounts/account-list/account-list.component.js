@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('AccountCtrl', ['$scope', '$rootScope', '$state', 'AccountService', 'AuthService', AccountCtrl]);
+        .controller('AccountCtrl', ['$state', 'AccountService', 'AuthService', AccountCtrl]);
 
-    function AccountCtrl($scope, $rootScope, $state, AccountService, AuthService) {
+    function AccountCtrl($state, AccountService, AuthService) {
 
         var vm = this;
         vm.selected = [];
