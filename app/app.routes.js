@@ -46,12 +46,22 @@
                     }
                 })
                 .state('app.viewloanaccount', {
-                    url: '/viewloanaccount/:loanId',
+                    url: '/viewloanaccount/:id',
                     templateUrl: 'src/accounts/loan-account-detail/loan-account-detail.html',
                     controller: 'LoanAccountViewCtrl',
                     controllerAs: 'vm',
                     data: {
                         title: 'View Loan Account',
+                        authorizedRoles: [USER_ROLES.user]
+                    }
+                })
+                .state('app.viewsavingsaccount', {
+                    url: '/viewsavingsaccount/:id',
+                    templateUrl: 'src/accounts/savings-account-detail/savings-account-detail.html',
+                    controller: 'SavingsAccountViewCtrl',
+                    controllerAs: 'vm',
+                    data: {
+                        title: 'View Savings Account',
                         authorizedRoles: [USER_ROLES.user]
                     }
                 })

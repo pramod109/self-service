@@ -52,7 +52,7 @@
   "label.heading.outstanding": "Outstanding Balance",
   "label.heading.accountId": "Account Id",
   "label.heading.currency": "Currency",
-
+  "label.heading.balance": "Balance",
 
 
   "label.msg.loadingCharges": "Loading Charges",

@@ -8,7 +8,7 @@
 
 			var vm = this;
 			vm.loadingLoanAccountInfo 	= true;
-			vm.loanAccountDetails 		= getLoanDetails( $stateParams.loanId );
+			vm.loanAccountDetails 		= getLoanDetails( $stateParams.id );
 			vm.statusClass = '';
 			vm.getStatusClass = getStatusClass
 
