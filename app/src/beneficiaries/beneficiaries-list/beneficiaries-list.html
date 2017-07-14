@@ -40,11 +40,11 @@
                         <td md-cell>{{ beneficiary.name }}</td>
                         <td md-cell>{{ beneficiary.officeName }}</td>
                         <td md-cell>{{ beneficiary.clientName }}</td>
-                        <td md-cell layout="row">
-                            <md-button ng-click="vm.goToEdit(beneficiary)" flex>
+                        <td md-cell>
+                            <md-button ng-click="vm.goToEdit(beneficiary)">
                                 <md-icon class="material-icons">edit</md-icon>
                             </md-button>
-                            <md-button class="md-warn" ng-click="vm.deleteConfirm($event, beneficiary)" flex>
+                            <md-button class="md-warn" ng-click="vm.deleteConfirm($event, beneficiary)">
                                 <md-icon class="material-icons">delete</md-icon>
                             </md-button>
                         </td>
