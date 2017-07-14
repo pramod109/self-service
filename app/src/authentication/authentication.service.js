@@ -4,6 +4,11 @@
     angular.module('selfService')
         .service('AuthService', ['$http', '$state', '$resource', 'storageService', 'BASE_URL', 'USER_ROLES', AuthService]);
 
+    /**
+     * @module AuthService
+     * @description
+     * Service required for Authentication
+     */
     function AuthService($http, $state, $resource, storageService, BASE_URL, USER_ROLES) {
 
         var role            = '',

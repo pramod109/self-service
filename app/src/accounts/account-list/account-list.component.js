@@ -2,29 +2,72 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('AccountCtrl', ['$state', 'AccountService', 'AuthService', AccountCtrl]);
+        .controller('AccountCtrl', ['$state', 'AccountService', AccountCtrl]);
 
-    function AccountCtrl($state, AccountService, AuthService) {
+    /**
+     * @module AccountCtrl
+     * @description
+     * Handles all different types of account of the user
+     * Shows Loan, Savings and Share accounts of the client
+     */
+    function AccountCtrl($state, AccountService) {
 
         var vm = this;
-        vm.selected = [];
-        vm.getAccounts = getAccounts;
-        vm.onPaginate = onPaginate;
-        vm.onReorder = onReorder;
-        vm.routeTo = routeTo;
-        vm.userData = AuthService.getUser();
-        vm.clientId = getClient();//@todo check if this is behind the 2 calls
-        vm.accounts = [];
+
+        /**
+         * @name loanAccounts
+         * @description To Store the loan accounts of user
+         * @type {Array}
+         */
         vm.loanAccounts = [];
+
+        /**
+         * @name savingsAccounts
+         * @description To store Savings account of user
+         * @type {Array}
+         */
         vm.savingsAccounts = [];
+
+        /**
+         * @name shareAccounts
+         * @description To store share accounts of user
+         * @type {Array}
+         */
         vm.shareAccounts = [];
+
+        /**
+         * @name loadingAccountInfo
+         * @description flag to store whether data loaded from API or not
+         * @type {boolean}
+         */
         vm.loadingAccountInfo = true;
 
+        /**
+         * @name query
+         * @description The Datatable needs a query object to query data to the server and filter
+         * @type {{limit: number, offset: number}}
+         */
         vm.query = {
             limit: 5,
             offset: 1
         };
 
+        /**
+         * @name clientId
+         * @description Store Client Id of the user
+         * @type {number}
+         */
+        vm.clientId = getClient();
+
+        vm.getAccounts = getAccounts;
+        vm.onPaginate = onPaginate;
+        vm.onReorder = onReorder;
+        vm.routeTo = routeTo;
+
+        /**
+         * @method getClient
+         * @description Get Client from account service and then fetch accounts
+         */
         function getClient() {
             AccountService.getClientId().then(function (clientId) {
                 vm.clientId = clientId;
@@ -32,8 +75,13 @@
             });
         }
 
-        function getAccounts(accountNo) {
-            AccountService.getAllAccounts(accountNo).get().$promise.then(function (res) {
+        /**
+         * @method getAccounts
+         * @description Get All accounts (Loan, Savings and share) from server and disable the loading
+         * @param clientId {number} Client Id
+         */
+        function getAccounts(clientId) {
+            AccountService.getAllAccounts(clientId).get().$promise.then(function (res) {
                 vm.loanAccounts = res.loanAccounts;
                 vm.savingsAccounts = res.savingsAccounts;
                 vm.shareAccounts = res.shareAccounts;
@@ -41,14 +89,31 @@
             });
         }
 
+        /**
+         * @method onPaginate
+         * @description When the page is updated of the account list table query data again
+         * @param offset {number} What offset should the record be fetched
+         * @param limit {number} Limit the number of record to fetch
+         */
         function onPaginate(offset, limit) {
             getAccounts(angular.extend({}, vm.query, {offset: offset, limit: limit}));
         }
 
+        /**
+         * @method onReorder
+         * @description Handle table updates when its sorted using column headers
+         * @param order
+         */
         function onReorder(order) {
             getAccounts(angular.extend({}, vm.query, {order: order}));
         }
 
+        /**
+         * @method routeTo
+         * @description When account is clicked handle routing to take user to account detail page
+         * @param accountType {string} type of account clicked (loan, savings, charge)
+         * @param id {number} id of the clicked account
+         */
         function routeTo(accountType, id) {
             var routingSlug = 'viewloanaccount';
             if ('savings' == accountType) {

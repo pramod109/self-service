@@ -1,21 +1,20 @@
 (function () {
     'use strict';
-    //@todo Move this service to the common folder
     angular.module('selfService')
         .service('AccountService', ['$http', '$resource', 'BASE_URL', 'storageService', AccountService]);
 
+    /**
+     * @module AccountService
+     * @description
+     * Service required for managing Accounts
+     */
     function AccountService($http, $resource, BASE_URL, storageService) {
 
-        /**
-         * Get the clients associated with the current user's account.
-         *
-         */
         this.getClients = function () {
             return $resource(BASE_URL + '/self/clients/');
         };
 
         this.getAllAccounts = function (clientId) {//@todo rename this getClientAccounts
-            //@todo update this to return $resource(BASE_URL+'/self/clients/'+id+'/accounts'); and test
             return $resource(BASE_URL + '/self/clients/' + clientId + '/accounts');
         };
 

@@ -4,27 +4,54 @@
     angular.module('selfService')
         .controller('TPTCtrl', ['$scope', '$filter', '$mdDialog', '$mdDateLocale', '$mdToast', 'AccountTransferService', TPTCtrl]);
 
+    /**
+     * @module TPTCtrl
+     * @description
+     * Third party transfer controller
+     */
     function TPTCtrl($scope, $filter, $mdDialog, $mdDateLocale, $mdToast, AccountTransferService) {
 
         var vm = this;
-        vm.fromAccountOptions = [];
-        vm.toAccountOptions = [];
-        vm.transferFormData = getTransferFormDataObj()
 
+        /**
+         * @name fromAccountOptions
+         * @type {Array}
+         * @description From account options to do a third party transfer
+         */
+        vm.fromAccountOptions = [];
+
+        /**
+         * @name toAccountOptions
+         * @type {Array}
+         * @description To account options to do a third party transfer
+         */
+        vm.toAccountOptions = [];
+
+        vm.transferFormData = getTransferFormDataObj()
         vm.getTransferTemplate = getTransferTemplate();
+
         vm.submit = submit;
 
-        // FORMAT THE DATE FOR THE DATEPICKER
+        // Format date for the DatePicker
         $mdDateLocale.formatDate = function (date) {
             return $filter('date')(date, "dd-MM-yyyy");
         };
 
+        /**
+         * @method getTransferFormDataObj
+         * @returns {{transferDate: Date}}
+         * @description Gets the transferFormObj to be sent to server to do a transfer
+         */
         function getTransferFormDataObj() {
             return {
                 transferDate: new Date()
             };
         }
 
+        /**
+         * @method getTransferTemplate
+         * @description Returns template from the server for the form to do a third party transfer
+         */
         function getTransferTemplate() {
             AccountTransferService.getTransferTemplate().get({type: "tpt"},function (data) {
                 vm.fromAccountOptions = data.fromAccountOptions;
@@ -32,11 +59,20 @@
             });
         }
 
+        /**
+         * @method clearForm
+         * @description To clear form
+         */
         function clearForm() {
             $scope.transferForm.$setPristine();
             vm.transferFormData = getTransferFormDataObj();
         }
 
+        /**
+         * @method submit
+         * @param ev
+         * @description To send form data to perform tpt to the server
+         */
         function submit(ev) {
             $mdDialog.show({
                 controller: 'ReviewTransferDialogCtrl',

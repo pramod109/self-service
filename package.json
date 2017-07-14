@@ -1,7 +1,9 @@
 {
   "name": "Self-Service-App",
   "version": "1.2.0",
-  "dependencies": {},
+  "dependencies": {
+    "docdash": "^0.4.0"
+  },
   "devDependencies": {
     "browser-sync": "~1.7.1",
     "chalk": "~0.5.1",
@@ -35,6 +37,7 @@
     "gulp-uglify": "~1.0.1",
     "gulp-useref": "~1.0.2",
     "http-proxy": "~1.7.0",
+    "jsdoc": "^3.5.3",
     "jshint-stylish": "~1.0.0",
     "karma-jasmine": "~0.3.1",
     "karma-phantomjs-launcher": "~0.1.4",
@@ -51,6 +54,7 @@
   "scripts": {
     "init": "npm install",
     "install": "npm install -g bower && bower install",
-    "lint": "eslint app/"
+    "lint": "eslint app/",
+    "docs": "jsdoc -c jsdoc.conf.json"
   }
 }

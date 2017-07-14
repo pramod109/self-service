@@ -4,8 +4,17 @@
     angular.module('selfService')
         .controller('LoginCtrl', ['$scope', '$state', '$mdToast', 'AuthService', 'AccountService', LoginCtrl]);
 
+    /**
+     * @module LoginCtrl
+     * @description
+     * Handles Login into the webapp
+     */
     function LoginCtrl($scope, $state, $mdToast, AuthService, AccountService) {
 
+        /**
+         * @method doLogin
+         * @description To perform the login action on the page
+         */
         $scope.doLogin = function () {
             AuthService.doLogin($scope.loginData).save().$promise.then(function (result) {
                 AuthService.setUser(result);

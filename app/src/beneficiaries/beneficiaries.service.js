@@ -4,6 +4,11 @@
     angular.module('selfService')
         .service('BeneficiariesService', ['$resource', 'BASE_URL', BeneficiariesService]);
 
+    /**
+     * @module BeneficiariesService
+     * @description
+     * Service required for Beneficiaries
+     */
     function BeneficiariesService($resource, BASE_URL) {
 
         this.getBeneficiaries = function () {

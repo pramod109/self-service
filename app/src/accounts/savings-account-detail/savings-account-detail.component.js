@@ -3,16 +3,44 @@
 
 		angular.module('selfService')
 			.controller('SavingsAccountViewCtrl', ['$stateParams', '$filter', 'SavingsAccountService', SavingsAccountViewCtrl]);
-
+		/**
+		 * @module SavingsAccountViewCtrl
+		 * @description
+		 * Handles the individial savings account detail page
+		 */
 		function SavingsAccountViewCtrl($stateParams, $filter, SavingsAccountService) {
 
 			var vm = this;
+
+			/**
+			 * @name loadingSavingsAccount
+             * @type {boolean}
+			 * @description Flag to check where the savings account data is loaded or not
+             */
 			vm.loadingSavingsAccount = true;
-			vm.savingsAccountDetails 		= getLoanDetails( $stateParams.id );
-			vm.statusClass = '';
+
+            /**
+			 * @name statusClass
+             * @type {string}
+			 * @description Stores the status class of savings account
+             */
+            vm.statusClass = '';
+
+            /**
+			 * @name savingsAccountDetails
+			 * @type {object}
+			 * @description Stores the savings account details from server
+             */
+			vm.savingsAccountDetails = getSavingsDetail($stateParams.id);
+
 			vm.getStatusClass = getStatusClass
 
-			function getLoanDetails( id ) {
+            /**
+			 * @method getSavingsDetail
+			 * @description Gets savings account detail from server
+			 * @param id {number} Savings Account id
+             */
+			function getSavingsDetail(id) {
                 SavingsAccountService.savingsAccount().get({id: id}).$promise.then(function(res) {
 					vm.loadingSavingsAccount = false;
 					vm.savingsAccountDetails = res;
@@ -20,6 +48,10 @@
 				});
 			}
 
+            /**
+			 * @method getStatusClass
+			 * @description updates the status of the savings account
+             */
 			function getStatusClass() {
                 var statusClass = $filter('StatusLookup')(vm.savingsAccountDetails.status.code);
                 statusClass = 'bg_' + statusClass;

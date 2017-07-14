@@ -4,19 +4,39 @@
     angular.module('selfService')
         .controller('ReviewTPTDialogCtrl', ['$filter', '$mdDialog', '$mdToast', 'transferFormData', 'AccountTransferService', ReviewTPTDialogCtrl]);
 
+    /**
+     * @module ReviewTPTDialogCtrl
+     * @description
+     * Review Third party transfer confirm dialog
+     */
     function ReviewTPTDialogCtrl($filter, $mdDialog, $mdToast, transferFormData, AccountTransferService) {
 
         var vm = this;
+
+        /**
+         * @name transferFormData
+         * @type {object}
+         * @description To get the form data to be sent to the server
+         */
         vm.transferFormData = Object.assign({}, transferFormData);
+
         vm.cancel = cancel;
         vm.transfer = transfer;
 
         vm.transferFormData.transferDate = $filter('DateFormat')(transferFormData.transferDate);
 
+        /**
+         * @method cancel
+         * @description To cancel the dialog and close it
+         */
         function cancel() {
             $mdDialog.cancel();
         }
 
+        /**
+         * @method transfer
+         * @description Do transfer send data to server
+         */
         function transfer() {
             // Transforming Request Data
             var transferData = {

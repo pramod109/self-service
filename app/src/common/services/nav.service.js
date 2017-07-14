@@ -4,6 +4,10 @@
   angular.module('selfService')
     .service('navService', ['$q', navService]);
 
+    /**
+     * @module navService
+     * @description Navigation Service
+     */
   function navService($q){
     var menuItems = [
       {

@@ -2,7 +2,6 @@
     'use strict';
 
     angular.module('selfService', [
-
         'ngAnimate',
         'ngCookies',
         'ngSanitize',
@@ -12,7 +11,6 @@
         'nvd3',
         'md.data.table',
         'pascalprecht.translate'
-
     ])
 
 })();
