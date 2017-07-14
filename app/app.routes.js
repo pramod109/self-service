@@ -37,7 +37,7 @@
                 })
                 .state('app.accounts', {
                     url: '/accounts',
-                    templateUrl: 'src/account-list/account-list.html',
+                    templateUrl: 'src/accounts/account-list/account-list.html',
                     controller: 'AccountCtrl',
                     controllerAs: 'vm',
                     data: {
@@ -47,7 +47,7 @@
                 })
                 .state('app.viewloanaccount', {
                     url: '/viewloanaccount/:loanId',
-                    templateUrl: 'src/loan-account-detail/loan-account-detail.html',
+                    templateUrl: 'src/accounts/loan-account-detail/loan-account-detail.html',
                     controller: 'LoanAccountViewCtrl',
                     controllerAs: 'vm',
                     data: {
