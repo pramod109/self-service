@@ -49,6 +49,10 @@
   "label.heading.addbeneficiaries": "Add Beneficiary",
   "label.heading.actions": "Actions",
   "label.heading.editbeneficiaries": "Edit Beneficiary",
+  "label.heading.outstanding": "Outstanding Balance",
+  "label.heading.accountId": "Account Id",
+  "label.heading.currency": "Currency",
+
 
 
   "label.msg.loadingCharges": "Loading Charges",
