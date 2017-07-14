@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('LoginCtrl', ['$scope', '$rootScope', '$state', '$mdToast', 'AUTH_EVENTS', 'AuthService', 'AccountService', LoginCtrl]);
+        .controller('LoginCtrl', ['$scope', '$state', '$mdToast', 'AuthService', 'AccountService', LoginCtrl]);
 
-    function LoginCtrl($scope, $rootScope, $state, $mdToast, AUTH_EVENTS, AuthService, AccountService) {
+    function LoginCtrl($scope, $state, $mdToast, AuthService, AccountService) {
 
         $scope.doLogin = function () {
             AuthService.doLogin($scope.loginData).save().$promise.then(function (result) {

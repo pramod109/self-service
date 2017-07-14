@@ -2,9 +2,9 @@
 	'use strict';
 
 		angular.module('selfService')
-			.controller('SavingsAccountViewCtrl', ['$scope', '$http','BASE_URL', '$rootScope', '$stateParams', '$filter', 'SavingsAccountService', SavingsAccountViewCtrl]);
+			.controller('SavingsAccountViewCtrl', ['$stateParams', '$filter', 'SavingsAccountService', SavingsAccountViewCtrl]);
 
-		function SavingsAccountViewCtrl($scope,$http,BASE_URL, $rootScope, $stateParams, $filter, SavingsAccountService) {
+		function SavingsAccountViewCtrl($stateParams, $filter, SavingsAccountService) {
 
 			var vm = this;
 			vm.loadingSavingsAccount = true;

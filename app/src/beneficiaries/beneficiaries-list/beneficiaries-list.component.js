@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('BeneficiariesListCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$mdDialog', '$mdToast', 'BeneficiariesService', BeneficiariesListCtrl]);
+        .controller('BeneficiariesListCtrl', ['$state', '$mdDialog', '$mdToast', 'BeneficiariesService', BeneficiariesListCtrl]);
 
-    function BeneficiariesListCtrl($scope, $rootScope, $state, $stateParams, $mdDialog, $mdToast, BeneficiariesService) {
+    function BeneficiariesListCtrl($state, $mdDialog, $mdToast, BeneficiariesService) {
 
         var vm = this;
         vm.loadingBeneficiaries = true;

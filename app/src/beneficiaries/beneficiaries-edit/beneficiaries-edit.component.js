@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('BeneficiariesEditCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$mdToast', 'BeneficiariesService', BeneficiariesEditCtrl]);
+        .controller('BeneficiariesEditCtrl', ['$scope', '$stateParams', '$mdToast', 'BeneficiariesService', BeneficiariesEditCtrl]);
 
-    function BeneficiariesEditCtrl($scope, $rootScope, $state, $stateParams, $mdToast, BeneficiariesService) {
+    function BeneficiariesEditCtrl($scope, $stateParams, $mdToast, BeneficiariesService) {
 
         var vm = this;
         vm.editBeneficiaryFormData = {
