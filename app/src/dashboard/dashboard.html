@@ -1,0 +1,58 @@
+<div class="md-padding">
+    <div layout="row">
+        <md-card flex="25">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-title">Total Accounts</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content>
+                <h1 class="md-display-2 text-center no-margin">{{ vm.dashboardData.totalAccounts}}</h1>
+            </md-card-content>
+        </md-card>
+        <md-card flex="25">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-title">Loan Accounts</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content>
+                <h1 class="md-display-2 text-center no-margin">{{ vm.dashboardData.loanAccounts.length}}</h1>
+            </md-card-content>
+        </md-card>
+        <md-card flex="25">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-title">Saving Accounts</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content>
+                <h1 class="md-display-2 text-center no-margin">{{ vm.dashboardData.savingsAccounts.length}}</h1>
+            </md-card-content>
+        </md-card>
+        <md-card flex="25">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-title">Share Accounts</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content>
+                <h1 class="md-display-2 text-center no-margin">{{ vm.dashboardData.shareAccounts.length}}</h1>
+            </md-card-content>
+        </md-card>
+    </div>
+    <div layout="row">
+        <md-card layout-gt-md="row" layout-align="center center" flex class="savings-total-card md-padding">
+            <h1 class="display-1" flex>Total savings</h1>
+            <h1 class="display-1 text-right" flex="60">{{ vm.dashboardData.totalSavings }}</h1>
+        </md-card>
+        <md-card layout-gt-md="row" layout-align="center center" flex class="loan-total-card md-padding">
+            <h1 class="display-1" flex>Total Loan</h1>
+            <h1 class="display-1 text-right" flex="60">{{ vm.dashboardData.totalLoan }}</h1>
+        </md-card>
+    </div>
+</div>
