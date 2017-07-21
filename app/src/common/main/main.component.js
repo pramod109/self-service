@@ -1,21 +1,19 @@
 (function () {
 
     angular.module('selfService')
-        .controller('MainCtrl', ['navService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$state', '$mdToast', '$scope', 'AuthService', 'AccountService', MainCtrl]);
+        .controller('MainCtrl', ['navService', '$mdSidenav', 'AuthService', 'AccountService', MainCtrl]);
 
-    function MainCtrl(navService, $mdSidenav, $mdBottomSheet, $log, $q, $state, $mdToast, $scope, AuthService, AccountService) {
+    function MainCtrl(navService, $mdSidenav, AuthService, AccountService) {
         var vm = this;
 
         vm.menuItems = [];
         vm.profileImage = null;
-
         vm.selectItem = selectItem;
         vm.toggleItemsList = toggleItemsList;
         vm.toggleRightSidebar = toggleRightSidebar;
         vm.logout = logout;
 
         vm.profile = getUserData();
-
 
         navService.loadAllItems().then(function (menuItems) {
             vm.menuItems = [].concat(menuItems);
@@ -26,11 +24,7 @@
         }
 
         function toggleItemsList() {
-            var pending = $mdBottomSheet.hide() || $q.when(true);
-
-            pending.then(function () {
-                $mdSidenav('left').toggle();
-            });
+            $mdSidenav('left').toggle();
         }
 
         function selectItem(itemName) {
