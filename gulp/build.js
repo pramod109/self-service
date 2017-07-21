@@ -7,6 +7,7 @@ var paths = gulp.paths;
 var $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
 });
+var hash = require('gulp-hash-filename');
 
 var wiredep = require('wiredep').stream;
 var runSequence = require('run-sequence');
@@ -24,6 +25,9 @@ gulp.task('partials', function () {
         .pipe($.angularTemplatecache('templateCacheHtml.js', {
             module: 'selfService',
             root: 'src/'
+        }))
+        .pipe(hash({
+            "format": "{name}.{hash:8}{ext}"
         }))
         .pipe(gulp.dest(paths.dist + '/js'))
 });
@@ -68,6 +72,9 @@ gulp.task('js', ['vendor', 'partials', 'app-js'], function () {
     ])
         .pipe($.angularFilesort())
         .pipe($.concat('app.js'))
+        .pipe(hash({
+            "format": "{name}.{hash:8}{ext}"
+        }))
         .pipe(gulp.dest(paths.dist + '/js'));
 })
 
