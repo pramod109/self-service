@@ -3,6 +3,7 @@
   "login.btn.login": "Login",
 
   "nav.msg.welcome": "Welcome,",
+  "nav.label.dashboard": "Dashboard",
   "nav.label.accounts": "Accounts",
   "nav.label.recenttransactions": "Recent Transactions",
   "nav.label.charges": "Charges",
