@@ -54,6 +54,15 @@
   "label.heading.accountId": "Account Id",
   "label.heading.currency": "Currency",
   "label.heading.balance": "Balance",
+  "label.heading.totalAccounts": "Total Accounts",
+  "label.heading.savingsAccounts": "Savings Accounts",
+  "label.heading.shareAccounts": "Share Accounts",
+  "label.heading.totalSavings": "Total Savings",
+  "label.heading.totalLoan": "Total Loan",
+  "label.heading.loanAccountOverview": "Loan Account Overview",
+  "label.heading.savingsAccountOverview": "Savings Account Overview",
+  "label.heading.shareAccountOverview": "Share Account Overview",
+
 
 
   "label.msg.loadingCharges": "Loading Charges",
