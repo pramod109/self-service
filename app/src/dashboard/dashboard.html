@@ -3,7 +3,7 @@
         <md-card flex="25">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-title">Total Accounts</span>
+                    <span class="md-title">{{ 'label.heading.totalAccounts' | translate }}</span>
                 </md-card-title-text>
             </md-card-title>
             <md-divider></md-divider>
@@ -14,7 +14,7 @@
         <md-card flex="25">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-title">Loan Accounts</span>
+                    <span class="md-title">{{ 'label.heading.loanAccount' | translate }}</span>
                 </md-card-title-text>
             </md-card-title>
             <md-divider></md-divider>
@@ -25,7 +25,7 @@
         <md-card flex="25">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-title">Saving Accounts</span>
+                    <span class="md-title">{{ 'label.heading.savingsAccounts' | translate }}</span>
                 </md-card-title-text>
             </md-card-title>
             <md-divider></md-divider>
@@ -36,7 +36,7 @@
         <md-card flex="25">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-title">Share Accounts</span>
+                    <span class="md-title">{{ 'label.heading.shareAccounts' | translate }}</span>
                 </md-card-title-text>
             </md-card-title>
             <md-divider></md-divider>
@@ -47,12 +47,41 @@
     </div>
     <div layout="row">
         <md-card layout-gt-md="row" layout-align="center center" flex class="savings-total-card md-padding">
-            <h1 class="display-1" flex>Total savings</h1>
+            <h1 class="display-1" flex>{{ 'label.heading.totalAccounts' | translate }}</h1>
             <h1 class="display-1 text-right" flex="60">{{ vm.dashboardData.totalSavings }}</h1>
         </md-card>
         <md-card layout-gt-md="row" layout-align="center center" flex class="loan-total-card md-padding">
-            <h1 class="display-1" flex>Total Loan</h1>
+            <h1 class="display-1" flex>{{ 'label.heading.totalLoan' | translate }}</h1>
             <h1 class="display-1 text-right" flex="60">{{ vm.dashboardData.totalLoan }}</h1>
+        </md-card>
+    </div>
+    <div layout="row">
+        <md-card flex-gt-md="33">
+            <md-card-title>
+                <span class="md-title">{{ 'label.heading.loanAccountOverview' | translate }}</span>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content>
+                <nvd3 options="vm.options" data="vm.dashboardData.loanAccountsOverview"></nvd3>
+            </md-card-content>
+        </md-card>
+        <md-card flex-gt-md="33">
+            <md-card-title>
+                <span class="md-title">{{ 'label.heading.savingsAccountOverview' | translate }}</span>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content>
+                <nvd3 options="vm.options" data="vm.dashboardData.savingsAccountsOverview"></nvd3>
+            </md-card-content>
+        </md-card>
+        <md-card flex-gt-md="33">
+            <md-card-title>
+                <span class="md-title">{{ 'label.heading.shareAccountOverview' | translate }}</span>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content>
+                <nvd3 options="vm.options" data="vm.dashboardData.shareAccountsOverview"></nvd3>
+            </md-card-content>
         </md-card>
     </div>
 </div>
