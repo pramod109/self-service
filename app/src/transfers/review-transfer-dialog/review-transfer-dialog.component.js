@@ -2,21 +2,42 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('ReviewTransferDialogCtrl', ['$scope', '$rootScope', '$stateParams', '$filter', '$mdDialog', '$mdToast', 'transferFormData', 'AccountTransferService', ReviewTransferDialogCtrl]);
+        .controller('ReviewTransferDialogCtrl', ['$filter', '$mdDialog', '$mdToast', 'transferFormData', 'AccountTransferService', ReviewTransferDialogCtrl]);
 
-    function ReviewTransferDialogCtrl($scope, $rootScope, $stateParams, $filter, $mdDialog, $mdToast, transferFormData, AccountTransferService) {
+    /**
+     * @module ReviewTransferDialogCtrl
+     * @description
+     * Review transfer confirm dialog
+     */
+    function ReviewTransferDialogCtrl($filter, $mdDialog, $mdToast, transferFormData, AccountTransferService) {
 
         var vm = this;
+
+        /**
+         * @name transferFormData
+         * @type {object}
+         * @description stores the form data to be sent to server for doing third party transfer
+         */
         vm.transferFormData = Object.assign({}, transferFormData);
+
         vm.cancel = cancel;
         vm.transfer = transfer;
 
+        // Format date for the DatePicker
         vm.transferFormData.transferDate = $filter('DateFormat')(transferFormData.transferDate);
 
+        /**
+         * @method cancel
+         * @description to cancel the dialog and the transfer
+         */
         function cancel() {
             $mdDialog.cancel();
         }
 
+        /**
+         * @method transfer
+         * @description to send form data to the server to perform transfer
+         */
         function transfer() {
             // Transforming Request Data
             var transferData = {

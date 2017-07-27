@@ -4,18 +4,45 @@
     angular.module('selfService')
         .controller('BeneficiariesEditCtrl', ['$scope', '$stateParams', '$mdToast', 'BeneficiariesService', BeneficiariesEditCtrl]);
 
+    /**
+     * @module BeneficiariesEditCtrl
+     * @description
+     * Handles Updation of beneficiary in the self service account
+     */
     function BeneficiariesEditCtrl($scope, $stateParams, $mdToast, BeneficiariesService) {
 
         var vm = this;
+
+        /**
+         * @name editBeneficiaryFormData
+         * @type {object}
+         * @description Stores beneficiary data to be edited and sent to server
+         */
         vm.editBeneficiaryFormData = {
             "locale": "en_GB"
         };
+
+        /**
+         * @name beneficiary
+         * @description Stores the beneficiary data
+         */
         vm.beneficiary = $stateParams.data;
+
+        /**
+         * @name accountTypeOptions
+         * @type {Array}
+         * @description Stores the type of account options available [ Savings, Loan ]
+         */
         vm.accountTypeOptions = [];
+
         vm.getBeneficiaryTemplate = getBeneficiaryTemplate();
         vm.clearForm = clearForm;
         vm.submit = submit;
 
+        /**
+         * @method getBeneficiaryTemplate
+         * @description Gets the beneficiary template from server to be filled in by the client
+         */
         function getBeneficiaryTemplate() {
             BeneficiariesService.template().get().$promise.then(function (data) {
                 vm.accountTypeOptions = data.accountTypeOptions;
@@ -30,6 +57,10 @@
             }
         }
 
+        /**
+         * @method clearForm
+         * @description Clears Beneficiary Form
+         */
         function clearForm() {
             $scope.editBeneficiaryForm.$setPristine();
             vm.editBeneficiaryFormData = {
@@ -37,6 +68,10 @@
             };
         }
 
+        /**
+         * @method submit
+         * @description Handles submit of the edit beneficiary form
+         */
         function submit() {
             var data = {
                 name: vm.editBeneficiaryFormData.name,

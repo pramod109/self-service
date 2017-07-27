@@ -2,11 +2,28 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('DashboardCtrl', ['$filter', 'AccountService', DashboardCtrl]);
+        .controller('DashboardCtrl', ['AccountService', DashboardCtrl]);
 
-    function DashboardCtrl($filter, AccountService) {
+    /**
+     * @module DashboardCtrl
+     * @description
+     * Controls the data of the dashboard
+     */
+    function DashboardCtrl(AccountService) {
         var vm = this;
+
+        /**
+         * @name dashboardData
+         * @type {object}
+         * @description Stores the dashboard data returned from the server
+         */
         vm.dashboardData = {};
+
+        /**
+         * @name options
+         * @type {{chart: {type: string, height: number, showLabels: boolean, x: module:DashboardCtrl.options.chart.x, y: module:DashboardCtrl.options.chart.y, duration: number, labelSunbeamLayout: boolean}}}
+         * @description Configuration for pie charts on the dashboard
+         */
         vm.options = {
             chart: {
                 type: 'pieChart',
@@ -21,6 +38,10 @@
 
         vm.getDashboardData = getDashboardData();
 
+        /**
+         * @method getDashboardData
+         * @description Gets Dashboard data from the server
+         */
         function getDashboardData() {
             AccountService.getClientId().then(function (clientId) {
                 AccountService.getAllAccounts(clientId).get().$promise.then(function(data) {
@@ -37,6 +58,13 @@
             })
         }
 
+        /**
+         * @method getTotalSavings
+         * @param total
+         * @param acc
+         * @description Reducer for chart data to get total savings balance
+         * @returns {number}
+         */
         function getTotalSavings(total, acc) {
             if(acc.accountBalance) {
                 return total + acc.accountBalance;
@@ -45,6 +73,13 @@
             }
         }
 
+        /**
+         * @method getTotalLoan
+         * @param total
+         * @param acc
+         * @description Reducer to find out total loan amount of the client
+         * @returns {number}
+         */
         function getTotalLoan(total, acc) {
             if(acc.loanBalance) {
                 return total + acc.loanBalance;
@@ -53,6 +88,12 @@
             }
         }
 
+        /**
+         * @method getChartData
+         * @param accounts
+         * @description modifies data to fill in the pie charts
+         * @returns {Array}
+         */
         function getChartData(accounts) {
             var chartObj = {};
             accounts.map(function(acc) {
@@ -68,7 +109,5 @@
             }
             return chartData;
         }
-
-
     }
 })();

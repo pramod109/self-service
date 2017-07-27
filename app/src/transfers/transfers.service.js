@@ -3,6 +3,11 @@
     angular.module('selfService')
         .service('AccountTransferService', ['$resource', 'BASE_URL', AccountTransferService]);
 
+    /**
+     * @module AccountTransferService
+     * @description
+     * Service required for Account Transfer
+     */
     function AccountTransferService($resource, BASE_URL) {
 
         this.getTransferTemplate = function () {

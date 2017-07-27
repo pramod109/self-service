@@ -4,6 +4,11 @@
   angular.module('selfService')
     .service('storageService', ['$q', storageService]);
 
+  /**
+   * @module storageService
+   * @description
+   * Service required to interact with local storage
+   */
   function storageService($q){
 
     return {
