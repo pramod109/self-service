@@ -1,7 +1,8 @@
 <div layout="row" class="md-padding loan-account-detail-cont" flex>
     <md-content flex ng-if="vm.loadingvm.loanAccountDetailsInfo">
         <div layout="row" flex>
-            <md-progress-circular md-mode="indeterminate"></md-progress-circular>Loading Loan Account Info...
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            Loading Loan Account Info...
             <!--@todo Internationalize-->
         </div>
     </md-content>
@@ -22,70 +23,82 @@
                     <p>Summary: </p>
                     <table class="summary-table">
                         <tbody md-table>
-                            <tr md-row>
-                                <td md-cell>{{ 'label.heading.accountNo' | translate}}</td>
-                                <td md-cell class="value">{{ vm.loanAccountDetails.accountNo}}</td>
-                            </tr>
-                            <tr md-row>
-                                <td>{{ 'label.heading.currency' | translate}}</td>
-                                <td class="value">{{ vm.loanAccountDetails.currency.name}}</td>
-                            </tr>
-                            <tr md-row ng-show="vm.loanAccountDetails.loanPurposeName">
-                                <td md-cell>Loan Purpose</td>
-                                <td md-cell class="value">{{ vm.loanAccountDetails.loanPurposeName }}</td>
-                            </tr>
-                            <tr md-row ng-show="vm.loanAccountDetails.proposedPrincipal">
-                                <td md-cell>Proposed Amount</td>
-                                <td md-cell class="value">{{ vm.loanAccountDetails.proposedPrincipal | number }}</td>
-                            </tr>
-                            <tr md-row ng-show="vm.loanAccountDetails.approvedPrincipal">
-                                <td md-cell>Approved Amount</td>
-                                <td md-cell class="value">{{ vm.loanAccountDetails.approvedPrincipal | number }}</td>
-                            </tr>
-                            <tr md-row ng-show="vm.loanAccountDetails.principal">
-                                <td md-cell>Disbursed Amount</td>
-                                <td md-cell class="value">{{ vm.loanAccountDetails.principal | number }}</td>
-                            </tr>
-                            <tr md-row ng-show="vm.loanAccountDetails.totalOverdue">
-                                <td md-cell>Arrears By</td>
-                                <td md-cell class="value">{{ vm.loanAccountDetails.totalOverdue | number }}</td>
-                            </tr>
-                            <tr md-row>
-                                <td md-cell>Submitted on </td>
-                                <td md-cell class="value">{{ vm.loanAccountDetails.timeline.submittedOnDate | DateFormat }}</td>
-                            </tr>
-                            <tr md-row>
-                                <td md-cell>Approved on </td>
-                                <td md-cell class="value">{{ vm.loanAccountDetails.timeline.approvedOnDate | DateFormat }}</td>
-                            </tr>
-                            <tr md-row>
-                                <td md-cell>Disbursed on  </td>
-                                <td md-cell class="value">{{ vm.loanAccountDetails.timeline.actualDisbursementDate | DateFormat }}</td>
-                            </tr>
-                            <tr md-row>
-                                <td md-cell>Matures on </td>
-                                <td md-cell class="value">{{ vm.loanAccountDetails.timeline.expectedMaturityDate | DateFormat }}</td>
-                            </tr>
-                            <tr md-row data-ng-show="vm.loanAccountDetails.canDefineInstallmentAmount">
-                                <td md-cell>Installment Amount</td>
-                                <td md-cell class="value">{{ vm.loanAccountDetails.fixedEmiAmount| number }}</td>
-                            </tr>
-                            <tr md-row data-ng-show="vm.loanAccountDetails.isTopup">
-                                <td md-cell>Is Topup Loan?</td>
-                                <td md-cell class="value"><span class="padded-td">{{ vm.loanAccountDetails.isTopup}}</span></td>
-                            </tr>
-                            <tr md-row data-ng-show="vm.loanAccountDetails.isTopup">
-                                <td md-cell>Loan closed with Topup</td>
-                                <td md-cell class="value"><span class="padded-td"><a href="#/viewloanaccount/{{ vm.loanAccountDetails.closureLoanId | number}}">{{ vm.loanAccountDetails.closureLoanAccountNo}}</a></span></td><!--@todo test that this works -->
-                            </tr>
-                            <tr md-row data-ng-show="vm.loanAccountDetails.isTopup">
-                                <td md-cell>Topup closure amount</td>
-                                <td md-cell class="value"><span class="padded-td">{{ vm.loanAccountDetails.topupAmount| number}}</span></td>
-                            </tr>
-                            <tr md-row>
-                                <td md-cell>Recalculate Interest</td>
-                                <td md-cell class="value"><span class="padded-td">{{ vm.loanAccountDetails.isInterestRecalculationEnabled }}</span></td><!--@todo add YesorNo filter -->
-                            </tr>
+                        <tr md-row>
+                            <td md-cell>{{ 'label.heading.accountNo' | translate}}</td>
+                            <td md-cell class="value">{{ vm.loanAccountDetails.accountNo}}</td>
+                        </tr>
+                        <tr md-row>
+                            <td>{{ 'label.heading.currency' | translate}}</td>
+                            <td class="value">{{ vm.loanAccountDetails.currency.name}}</td>
+                        </tr>
+                        <tr md-row ng-show="vm.loanAccountDetails.loanPurposeName">
+                            <td md-cell>Loan Purpose</td>
+                            <td md-cell class="value">{{ vm.loanAccountDetails.loanPurposeName }}</td>
+                        </tr>
+                        <tr md-row ng-show="vm.loanAccountDetails.proposedPrincipal">
+                            <td md-cell>Proposed Amount</td>
+                            <td md-cell class="value">{{ vm.loanAccountDetails.proposedPrincipal | number }}</td>
+                        </tr>
+                        <tr md-row ng-show="vm.loanAccountDetails.approvedPrincipal">
+                            <td md-cell>Approved Amount</td>
+                            <td md-cell class="value">{{ vm.loanAccountDetails.approvedPrincipal | number }}</td>
+                        </tr>
+                        <tr md-row ng-show="vm.loanAccountDetails.principal">
+                            <td md-cell>Disbursed Amount</td>
+                            <td md-cell class="value">{{ vm.loanAccountDetails.principal | number }}</td>
+                        </tr>
+                        <tr md-row ng-show="vm.loanAccountDetails.totalOverdue">
+                            <td md-cell>Arrears By</td>
+                            <td md-cell class="value">{{ vm.loanAccountDetails.totalOverdue | number }}</td>
+                        </tr>
+                        <tr md-row>
+                            <td md-cell>Submitted on</td>
+                            <td md-cell class="value">{{ vm.loanAccountDetails.timeline.submittedOnDate | DateFormat
+                                }}
+                            </td>
+                        </tr>
+                        <tr md-row>
+                            <td md-cell>Approved on</td>
+                            <td md-cell class="value">{{ vm.loanAccountDetails.timeline.approvedOnDate | DateFormat }}
+                            </td>
+                        </tr>
+                        <tr md-row>
+                            <td md-cell>Disbursed on</td>
+                            <td md-cell class="value">{{ vm.loanAccountDetails.timeline.actualDisbursementDate |
+                                DateFormat }}
+                            </td>
+                        </tr>
+                        <tr md-row>
+                            <td md-cell>Matures on</td>
+                            <td md-cell class="value">{{ vm.loanAccountDetails.timeline.expectedMaturityDate |
+                                DateFormat }}
+                            </td>
+                        </tr>
+                        <tr md-row data-ng-show="vm.loanAccountDetails.canDefineInstallmentAmount">
+                            <td md-cell>Installment Amount</td>
+                            <td md-cell class="value">{{ vm.loanAccountDetails.fixedEmiAmount| number }}</td>
+                        </tr>
+                        <tr md-row data-ng-show="vm.loanAccountDetails.isTopup">
+                            <td md-cell>Is Topup Loan?</td>
+                            <td md-cell class="value"><span class="padded-td">{{ vm.loanAccountDetails.isTopup}}</span>
+                            </td>
+                        </tr>
+                        <tr md-row data-ng-show="vm.loanAccountDetails.isTopup">
+                            <td md-cell>Loan closed with Topup</td>
+                            <td md-cell class="value"><span class="padded-td"><a
+                                    href="#/viewloanaccount/{{ vm.loanAccountDetails.closureLoanId | number}}">{{ vm.loanAccountDetails.closureLoanAccountNo}}</a></span>
+                            </td><!--@todo test that this works -->
+                        </tr>
+                        <tr md-row data-ng-show="vm.loanAccountDetails.isTopup">
+                            <td md-cell>Topup closure amount</td>
+                            <td md-cell class="value"><span class="padded-td">{{ vm.loanAccountDetails.topupAmount| number}}</span>
+                            </td>
+                        </tr>
+                        <tr md-row>
+                            <td md-cell>Recalculate Interest</td>
+                            <td md-cell class="value"><span class="padded-td">{{ vm.loanAccountDetails.isInterestRecalculationEnabled }}</span>
+                            </td><!--@todo add YesorNo filter -->
+                        </tr>
                         </tbody>
                     </table>
                 </md-content>
@@ -97,7 +110,8 @@
             <md-tab label="Account Details">
                 <md-content class="md-padding">
                     <div ng-if="vm.loadingvm.loanAccountDetailsInfo">
-                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>Loading Loan Account Info...
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                        Loading Loan Account Info...
                         <!--@todo Internationalize-->
                     </div>
                     <md-table-container>
@@ -109,7 +123,11 @@
                             </tr>
                             <tr md-row>
                                 <td md-cell>Repayments</td>
-                                <td md-cell>{{ vm.loanAccountDetails.numberOfRepayments}} every {{ vm.loanAccountDetails.repaymentEvery}}&nbsp;{{ vm.loanAccountDetails.repaymentFrequencyType.value}}</span><span ng-show="vm.loanAccountDetails.repaymentFrequencyType.id == 2 && vm.loanAccountDetails.repaymentFrequencyNthDayType.id != 0 && vm.loanAccountDetails.repaymentFrequencyDayOfWeekType.id != 0">&nbsp;on&nbsp;{{ vm.loanAccountDetails.repaymentFrequencyNthDayType.value}}&nbsp;{{ vm.loanAccountDetails.repaymentFrequencyDayOfWeekType.value}}</td>
+                                <td md-cell>{{ vm.loanAccountDetails.numberOfRepayments}} every {{
+                                    vm.loanAccountDetails.repaymentEvery}}&nbsp;{{
+                                    vm.loanAccountDetails.repaymentFrequencyType.value}}</span><span
+                                            ng-show="vm.loanAccountDetails.repaymentFrequencyType.id == 2 && vm.loanAccountDetails.repaymentFrequencyNthDayType.id != 0 && vm.loanAccountDetails.repaymentFrequencyDayOfWeekType.id != 0">&nbsp;on&nbsp;{{ vm.loanAccountDetails.repaymentFrequencyNthDayType.value}}&nbsp;{{ vm.loanAccountDetails.repaymentFrequencyDayOfWeekType.value}}
+                                </td>
                             </tr>
                             <tr md-row>
                                 <td md-cell>Amortization</td>
@@ -117,7 +135,11 @@
                             </tr>
                             <tr md-row ng-show="!vm.loanAccountDetails.isLoanProductLinkedToFloatingRate">
                                 <td md-cell>Interest</td>
-                                <td md-cell>{{ vm.loanAccountDetails.annualInterestRate}} per annum ({{ vm.loanAccountDetails.interestRatePerPeriod}}%&nbsp; {{ vm.loanAccountDetails.interestRateFrequencyType.value}}) - {{ vm.loanAccountDetails.interestType.value}}</td>
+                                <td md-cell>{{ vm.loanAccountDetails.annualInterestRate}} per annum ({{
+                                    vm.loanAccountDetails.interestRatePerPeriod}}%&nbsp; {{
+                                    vm.loanAccountDetails.interestRateFrequencyType.value}}) - {{
+                                    vm.loanAccountDetails.interestType.value}}
+                                </td>
                             </tr>
                             <tr md-row>
                                 <td md-cell>Grace: On Principal Payment</td>
@@ -128,7 +150,7 @@
                                 <td md-cell>{{ vm.loanAccountDetails.graceOnInterestPayment }}</td>
                             </tr>
                             <tr md-row>
-                                <td md-cell>Grace on Arrears Ageing </td>
+                                <td md-cell>Grace on Arrears Ageing</td>
                                 <td md-cell>{{ vm.loanAccountDetails.graceOnArrearsAgeing }}</td>
                             </tr>
                             <tr md-row>
@@ -136,7 +158,7 @@
                                 <td md-cell>{{ vm.loanAccountDetails.fundName }}</td>
                             </tr>
                             <tr md-row>
-                                <td md-cell>Interest Free Period </td>
+                                <td md-cell>Interest Free Period</td>
                                 <td md-cell>{{ vm.loanAccountDetails.graceOnInterestCharged }}</td>
                             </tr>
                             <tr md-row>
@@ -144,7 +166,7 @@
                                 <td md-cell>{{ vm.loanAccountDetails.interestCalculationPeriodType.value }}</td>
                             </tr>
                             <tr md-row>
-                                <td md-cell>Allow Partial Interest Calcualtion with same as repayment </td>
+                                <td md-cell>Allow Partial Interest Calcualtion with same as repayment</td>
                                 <td md-cell>{{ vm.loanAccountDetails.allowPartialPeriodInterestCalcualtion }}</td>
                             </tr>
                             <tr md-row>
@@ -152,19 +174,20 @@
                                 <td md-cell>{{ vm.loanAccountDetails.interestType.value }}</td>
                             </tr>
                             <tr md-row>
-                                <td md-cell>Submitted on </td>
+                                <td md-cell>Submitted on</td>
                                 <td md-cell>{{ vm.loanAccountDetails.timeline.submittedOnDate | DateFormat }}</td>
                             </tr>
                             <tr md-row>
-                                <td md-cell>Approved on </td>
+                                <td md-cell>Approved on</td>
                                 <td md-cell>{{ vm.loanAccountDetails.timeline.approvedOnDate | DateFormat }}</td>
                             </tr>
                             <tr md-row>
-                                <td md-cell>Disbursed on  </td>
-                                <td md-cell>{{ vm.loanAccountDetails.timeline.actualDisbursementDate | DateFormat }}</td>
+                                <td md-cell>Disbursed on</td>
+                                <td md-cell>{{ vm.loanAccountDetails.timeline.actualDisbursementDate | DateFormat }}
+                                </td>
                             </tr>
                             <tr md-row>
-                                <td md-cell>Matures on </td>
+                                <td md-cell>Matures on</td>
                                 <td md-cell>{{ vm.loanAccountDetails.timeline.expectedMaturityDate | DateFormat }}</td>
                             </tr>
                             <tr md-row data-ng-show="vm.loanAccountDetails.canDefineInstallmentAmount">
@@ -177,47 +200,60 @@
                             </tr>
                             <tr md-row data-ng-show="vm.loanAccountDetails.isTopup">
                                 <td md-cell>Loan closed with Topup</td>
-                                <td md-cell><span class="padded-td"><a href="#/viewloanaccount/{{ vm.loanAccountDetails.closureLoanId | number}}">{{ vm.loanAccountDetails.closureLoanAccountNo}}</a></span></td><!--@todo test that this works -->
+                                <td md-cell><span class="padded-td"><a
+                                        href="#/viewloanaccount/{{ vm.loanAccountDetails.closureLoanId | number}}">{{ vm.loanAccountDetails.closureLoanAccountNo}}</a></span>
+                                </td><!--@todo test that this works -->
                             </tr>
                             <tr md-row data-ng-show="vm.loanAccountDetails.isTopup">
                                 <td md-cell>Topup closure amount</td>
-                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.topupAmount| number}}</span></td>
+                                <td md-cell><span
+                                        class="padded-td">{{ vm.loanAccountDetails.topupAmount| number}}</span></td>
                             </tr>
                             <tr md-row>
                                 <td md-cell>Recalculate Interest</td>
-                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.isInterestRecalculationEnabled }}</span></td><!--@todo add YesorNo filter -->
+                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.isInterestRecalculationEnabled }}</span>
+                                </td><!--@todo add YesorNo filter -->
                             </tr>
                             <tr md-row>
                                 <td md-cell>Days in year</td>
-                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.daysInYearType.value}}</span></td>
+                                <td md-cell><span
+                                        class="padded-td">{{ vm.loanAccountDetails.daysInYearType.value}}</span></td>
                             </tr>
                             <tr md-row>
                                 <td md-cell>Days in month</td>
-                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.daysInMonthType.value }}</span></td>
+                                <td md-cell><span
+                                        class="padded-td">{{ vm.loanAccountDetails.daysInMonthType.value }}</span></td>
                             </tr>
                             <tr md-row data-ng-show="vm.loanAccountDetails.isInterestRecalculationEnabled">
                                 <td md-cell>Interest recalculation compounding on</td>
-                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.interestRecalculationData.interestRecalculationCompoundingType.value}}</span></td>
+                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.interestRecalculationData.interestRecalculationCompoundingType.value}}</span>
+                                </td>
                             </tr>
                             <tr md-row data-ng-show="vm.loanAccountDetails.isInterestRecalculationEnabled">
                                 <td md-cell>Advance payments adjustment type</td>
-                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.interestRecalculationData.rescheduleStrategyType.value}}</span></td>
+                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.interestRecalculationData.rescheduleStrategyType.value}}</span>
+                                </td>
                             </tr>
                             <tr md-row data-ng-show="vm.loanAccountDetails.isInterestRecalculationEnabled">
                                 <td md-cell>Frequency for recalculate Outstanding Principal</td>
-                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.interestRecalculationData.calendarData.humanReadable}}</span></td>
+                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.interestRecalculationData.calendarData.humanReadable}}</span>
+                                </td>
                             </tr>
-                            <tr md-row data-ng-show="vm.loanAccountDetails.isInterestRecalculationEnabled && vm.loanAccountDetails.interestRecalculationData.interestRecalculationCompoundingType.id !=0">
+                            <tr md-row
+                                data-ng-show="vm.loanAccountDetails.isInterestRecalculationEnabled && vm.loanAccountDetails.interestRecalculationData.interestRecalculationCompoundingType.id !=0">
                                 <td md-cell>Frequency for compounding</td>
-                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.interestRecalculationData.compoundingCalendarData.humanReadable}}</span></td>
+                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.interestRecalculationData.compoundingCalendarData.humanReadable}}</span>
+                                </td>
                             </tr>
                             <tr md-row data-ng-show="vm.loanAccountDetails.isVariableInstallmentsAllowed">
                                 <td md-cell>Variable Installments Allowed</td>
-                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.isVariableInstallmentsAllowed}}</span></td>
+                                <td md-cell><span class="padded-td">{{ vm.loanAccountDetails.isVariableInstallmentsAllowed}}</span>
+                                </td>
                             </tr>
                             <tr md-row data-ng-show="vm.loanAccountDetails.isVariableInstallmentsAllowed">
                                 <td md-cell>Gap between Installments</td>
-                                <td colspan="3">(Min:{{ vm.loanAccountDetails.minimumGap}}&nbsp; Days &nbsp;, Max:{{ vm.loanAccountDetails.maximumGap}}&nbsp Days)
+                                <td colspan="3">(Min:{{ vm.loanAccountDetails.minimumGap}}&nbsp; Days &nbsp;, Max:{{
+                                    vm.loanAccountDetails.maximumGap}}&nbsp Days)
                                 </td>
 
                             </tr>
@@ -229,13 +265,59 @@
 
             <md-tab label="Repayment Schedule">
                 <md-content class="md-padding">
-                    Repayment schedule
+                    <md-table-container>
+                        <table md-table md-progress="vm.promise">
+                            <thead md-head>
+                                <tr md-row>
+                                    <th md-column>
+                                        Due Date
+                                    </th>
+                                    <th md-column>
+                                        Principal Due
+                                    </th>
+                                    <th md-column>
+                                        Principal Loan Balance Outstanding
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                            <tr md-row ng-repeat="period in vm.loanAccountDetails.repaymentSchedule.periods">
+                                <td md-cell>{{period.dueDate | DateFormat}}</td>
+                                <td md-cell>{{period.principalDue | number}}</td>
+                                <td md-cell>{{period.principalLoanBalanceOutstanding | number}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
                 </md-content>
             </md-tab>
+            <md-tab label="Transactions">
+                <md-content>
+                    <md-table-container>
+                        <table md-table>
+                            <thead md-head>
+                            <tr md-row>
+                                <th md-column>
+                                    <span>{{ 'label.heading.type' | translate }}</span>
+                                </th>
+                                <th md-column>
+                                    {{ 'label.heading.amount' | translate }}
+                                </th>
+                                <th md-column>
+                                    {{ 'label.heading.date' | translate }}
+                                </th>
+                            </tr>
 
-            <md-tab label="Notes">
-                <md-content class="md-padding">
-                    Notes
+                            </thead>
+                            <tbody md-body>
+                            <tr md-row ng-repeat="transaction in vm.loanAccountDetails.transactions">
+                                <td md-cell>{{ transaction.type.value }}</td>
+                                <td md-cell>{{ transaction.amount }}</td>
+                                <td md-cell>{{ transaction.date | DateFormat }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
                 </md-content>
             </md-tab>
         </md-tabs>
