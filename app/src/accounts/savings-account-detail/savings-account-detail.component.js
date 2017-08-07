@@ -33,6 +33,12 @@
              */
 			vm.savingsAccountDetails = getSavingsDetail($stateParams.id);
 
+            /**
+			 * @name transactions
+             * @type {Array}
+             */
+			vm.transactions = [];
+
 			vm.getStatusClass = getStatusClass
 
             /**
@@ -41,9 +47,10 @@
 			 * @param id {number} Savings Account id
              */
 			function getSavingsDetail(id) {
-                SavingsAccountService.savingsAccount().get({id: id}).$promise.then(function(res) {
+                SavingsAccountService.savingsAccount().get({id: id, associations: 'transactions,charges'}).$promise.then(function(res) {
 					vm.loadingSavingsAccount = false;
 					vm.savingsAccountDetails = res;
+					vm.transactions = res.transactions;
 					getStatusClass();
 				});
 			}
