@@ -34,17 +34,24 @@
          */
         vm.statusClass = '';
 
+        vm.repaymentSchedule = {};
+
         /**
          * @method getLoanDetails
          * @description To get the loan details from the server
          * @param id {number} Loan Account id
          */
         function getLoanDetails(id) {
-            LoanAccountService.loanAccount().get({id: id}).$promise.then(function (res) {
+            LoanAccountService.loanAccount().get({
+                id: id,
+                associations:'repaymentSchedule,transactions'
+            }).$promise.then(function (res) {
                 vm.loadingLoanAccountInfo = false;
                 vm.loanAccountDetails = res;
+
                 getStatusClass();
             });
+
         }
 
         /**
