@@ -120,7 +120,11 @@
                     controllerAs: 'vm',
                     data: {
                         title: 'Transfers',
-                        authorizedRoles: [USER_ROLES.user]
+                        authorizedRoles: [USER_ROLES.user],
+                    },
+                    params: {
+                        toAccount: null,
+                        fromAccount: null
                     }
                 })
                 .state('app.tpt', {

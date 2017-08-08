@@ -71,6 +71,10 @@
                     </table>
                 </md-content>
             </div>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="vm.deposit()">{{ 'label.btn.deposit' | translate }}</md-button>
+                <md-button ng-click="vm.transfer()">{{ 'label.btn.transfer' | translate }}</md-button>
+            </md-card-actions>
         </md-card>
     </div>
     <div layout="row" class="md-padding" flex-gt-md="60">
