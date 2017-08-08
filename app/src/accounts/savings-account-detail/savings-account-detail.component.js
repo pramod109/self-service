@@ -2,13 +2,13 @@
 	'use strict';
 
 		angular.module('selfService')
-			.controller('SavingsAccountViewCtrl', ['$stateParams', '$filter', 'SavingsAccountService', SavingsAccountViewCtrl]);
+			.controller('SavingsAccountViewCtrl', ['$state', '$stateParams', '$filter', 'SavingsAccountService', SavingsAccountViewCtrl]);
 		/**
 		 * @module SavingsAccountViewCtrl
 		 * @description
 		 * Handles the individial savings account detail page
 		 */
-		function SavingsAccountViewCtrl($stateParams, $filter, SavingsAccountService) {
+		function SavingsAccountViewCtrl($state, $stateParams, $filter, SavingsAccountService) {
 
 			var vm = this;
 
@@ -39,7 +39,9 @@
              */
 			vm.transactions = [];
 
-			vm.getStatusClass = getStatusClass
+			vm.getStatusClass = getStatusClass;
+			vm.deposit = deposit;
+			vm.transfer = transfer;
 
             /**
 			 * @method getSavingsDetail
@@ -67,6 +69,18 @@
 				}
 
 				vm.statusClass = statusClass;
+			}
+
+			function deposit() {
+				$state.go('app.transfers', {
+					toAccount: vm.savingsAccountDetails
+				});
+			}
+
+			function transfer() {
+				$state.go('app.transfers', {
+					fromAccount: vm.savingsAccountDetails
+				});
 			}
 		}
 })();

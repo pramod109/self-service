@@ -2,14 +2,14 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('LoanAccountViewCtrl', ['$stateParams', '$filter', 'LoanAccountService', LoanAccountViewCtrl]);
+        .controller('LoanAccountViewCtrl', ['$state', '$stateParams', '$filter', 'LoanAccountService', LoanAccountViewCtrl]);
 
     /**
      * @module LoanAccountViewCtrl
      * @description
      * Handles the Loan Account Details Page.
      */
-    function LoanAccountViewCtrl($stateParams, $filter, LoanAccountService) {
+    function LoanAccountViewCtrl($state, $stateParams, $filter, LoanAccountService) {
 
         var vm = this;
 
@@ -36,6 +36,8 @@
 
         vm.repaymentSchedule = {};
 
+        vm.makePayment = makePayment;
+
         /**
          * @method getLoanDetails
          * @description To get the loan details from the server
@@ -48,10 +50,8 @@
             }).$promise.then(function (res) {
                 vm.loadingLoanAccountInfo = false;
                 vm.loanAccountDetails = res;
-
                 getStatusClass();
             });
-
         }
 
         /**
@@ -64,8 +64,13 @@
             if (vm.loanAccountDetails.inArrears) {
                 statusClass += 'overdue';
             }
-
             vm.statusClass = statusClass;
+        }
+
+        function makePayment() {
+            $state.go('app.transfers', {
+                toAccount: vm.loanAccountDetails
+            });
         }
     }
 })();
