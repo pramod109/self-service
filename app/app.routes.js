@@ -173,6 +173,12 @@
                     }
 
                 })
+                .state('app.applyloan', {
+                    url: '/loans/apply',
+                    templateUrl: 'src/loan-application/loan-application.html',
+                    controller: 'LoanApplicationCtrl',
+                    controllerAs: 'vm'
+                })
                 .state('login', {
                     url: '/login',
                     templateUrl: 'src/authentication/login/login.html',
