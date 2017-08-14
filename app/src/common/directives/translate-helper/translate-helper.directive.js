@@ -9,6 +9,7 @@
             restrict: 'E',
             controller: 'translateHelperCtrl',
             controllerAs: 'vm',
+            scope: {},
             templateUrl: 'src/common/directives/translate-helper/translate-helper.html'
         }
 
