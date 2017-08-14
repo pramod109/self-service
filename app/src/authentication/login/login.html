@@ -26,8 +26,14 @@
                     <input type="password" ng-model="loginData.password">
                 </md-input-container>
 
+                <div layout="row" ng-show="vm.authenticating" layout-align="center center">
+                    <md-progress-circular class="md-primary" md-diameter="40"></md-progress-circular>
+                    {{ 'label.msg.logginIn' | translate }}
+                </div>
+
                 <section layout="column" layout-align="start">
-                    <md-button type="submit" class="md-primary md-raised">{{ 'login.btn.login' | translate }}
+                    <md-button ng-hide="vm.authenticating" type="submit" class="md-primary md-raised">
+                        {{ 'login.btn.login' | translate }}
                     </md-button>
                     <md-button class="md-default" ui-sref="forgot">{{ 'login.btn.forgot' | translate }}</md-button>
                     <md-button class="md-primary" ui-sref="register">{{ 'login.btn.register' | translate }}</md-button>
