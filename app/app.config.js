@@ -60,6 +60,7 @@
                     prefix: 'global-translations/locale-',
                     suffix: '.json'
                 });
+                $translateProvider.useSanitizeValueStrategy('sanitize');
                 $translateProvider.preferredLanguage('en');
 
             }
