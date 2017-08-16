@@ -62,10 +62,11 @@
          * @description Clears Beneficiary Form
          */
         function clearForm() {
-            $scope.editBeneficiaryForm.$setPristine();
             vm.editBeneficiaryFormData = {
                 "locale": "en_GB"
             };
+            $scope.editBeneficiaryForm.$setPristine();
+            $scope.addBeneficiaryForm.$setUntouched();
         }
 
         /**

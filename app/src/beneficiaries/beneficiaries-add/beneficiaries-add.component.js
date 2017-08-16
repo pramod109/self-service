@@ -49,10 +49,11 @@
          * @description Function to clear form
          */
         function clearForm() {
-            $scope.addBeneficiaryForm.$setPristine();
             vm.addBeneficiaryFormData = {
                 "locale": "en_GB"
             };
+            $scope.addBeneficiaryForm.$setPristine();
+            $scope.addBeneficiaryForm.$setUntouched();
         }
 
         /**

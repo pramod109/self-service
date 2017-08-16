@@ -64,8 +64,9 @@
          * @description To clear form
          */
         function clearForm() {
-            $scope.transferForm.$setPristine();
             vm.transferFormData = getTransferFormDataObj();
+            $scope.transferForm.$setPristine();
+            $scope.transferForm.$setUntouched();
         }
 
         /**
