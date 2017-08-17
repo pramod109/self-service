@@ -56,11 +56,12 @@
                 // Mifos set Tenant
                 $httpProvider.defaults.headers.common['Fineract-Platform-TenantId'] = 'default';
 
+                $httpProvider.interceptors.push('APIRequestInterceptor');
+
                 $translateProvider.useStaticFilesLoader({
                     prefix: 'global-translations/locale-',
                     suffix: '.json'
                 });
-                $translateProvider.useSanitizeValueStrategy('sanitize');
                 $translateProvider.preferredLanguage('en');
 
             }
