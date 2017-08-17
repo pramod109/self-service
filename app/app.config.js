@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('selfService')
-        .config(function ($mdThemingProvider, $mdIconProvider, $httpProvider, $translateProvider) {
+        .config(function ($mdThemingProvider, $mdIconProvider, $httpProvider, $translateProvider, TENANT_IDENTIFIER) {
 
                 $mdThemingProvider
                     .theme('default')
@@ -54,7 +54,7 @@
                 //Set headers
                 $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
                 // Mifos set Tenant
-                $httpProvider.defaults.headers.common['Fineract-Platform-TenantId'] = 'default';
+                $httpProvider.defaults.headers.common['Fineract-Platform-TenantId'] = TENANT_IDENTIFIER;
 
                 $httpProvider.interceptors.push('APIRequestInterceptor');
 
