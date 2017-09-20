@@ -2,16 +2,19 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('AccountTransferCtrl', ['$scope', '$stateParams', '$filter', '$mdDialog', '$mdDateLocale', '$mdToast', 'AccountTransferService', AccountTransferCtrl]);
+        .controller('AccountTransferCtrl', ['$scope', '$rootScope', '$stateParams', '$filter', '$mdDialog', '$mdDateLocale', '$mdToast', 'AccountTransferService', AccountTransferCtrl]);
 
     /**
      * @module AccountTransferCtrl
      * @description
      * Account Transfer Controller
      */
-    function AccountTransferCtrl($scope, $stateParams, $filter, $mdDialog, $mdDateLocale, $mdToast, AccountTransferService) {
+    function AccountTransferCtrl($scope, $rootScope, $stateParams, $filter, $mdDialog, $mdDateLocale, $mdToast, AccountTransferService) {
 
         var vm = this;
+
+        //pramod109
+        vm.reRoute = reRoute;
 
         /**
          * @name fromAccountOptions
@@ -122,6 +125,12 @@
             });
         }
 
+        //pramod109
+        //Method to route 'Cancel' button to 'Dashboard'
+        function reRoute(msg) {
+            console.log('reRoute Called');
+            $rootScope.$broadcast('dashboard', 'Dashboard');
+        }
 
     }
 })();

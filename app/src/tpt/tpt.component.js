@@ -2,16 +2,19 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('TPTCtrl', ['$scope', '$filter', '$mdDialog', '$mdDateLocale', '$mdToast', 'AccountTransferService', TPTCtrl]);
+        .controller('TPTCtrl', ['$scope', '$rootScope', '$filter', '$mdDialog', '$mdDateLocale', '$mdToast', 'AccountTransferService', TPTCtrl]);
 
     /**
      * @module TPTCtrl
      * @description
      * Third party transfer controller
      */
-    function TPTCtrl($scope, $filter, $mdDialog, $mdDateLocale, $mdToast, AccountTransferService) {
+    function TPTCtrl($scope, $rootScope, $filter, $mdDialog, $mdDateLocale, $mdToast, AccountTransferService) {
 
         var vm = this;
+
+        //pramod109
+        vm.reRoute = reRoute;
 
         /**
          * @name fromAccountOptions
@@ -95,6 +98,13 @@
                         .position('top right')
                 );
             });
+        }
+
+        //pramod109
+        //Method to route 'Cancel' button to 'Dashboard'
+        function reRoute(msg) {
+            console.log('reRoute Called');
+            $rootScope.$broadcast('dashboard', 'Dashboard');
         }
 
 

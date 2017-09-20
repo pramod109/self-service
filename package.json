@@ -53,7 +53,7 @@
   },
   "scripts": {
     "init": "npm install",
-    "install": "npm install -g bower && bower install",
+    "install": "npm install",
     "lint": "eslint app/",
     "docs": "jsdoc -c jsdoc.conf.json"
   }

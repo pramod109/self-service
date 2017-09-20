@@ -13,10 +13,17 @@
           Close
         </md-button> -->
         <md-divider></md-divider>
-        <md-button ng-click="vm.selectItem('Dashboard')" ui-sref-active="md-warn"
+        <md-button id="dashButton" ng-click="vm.selectItem('Dashboard')" ui-sref-active="md-warn"
                    ui-sref=".dashboard" style="text-align: left;display: block;">
             <div class="md-tile-content">
                 <i hide-sm hide-md class="material-icons md-18">home</i> {{ 'nav.label.dashboard' | translate}}
+            </div>
+        </md-button>
+        <md-divider></md-divider>
+        <md-button id="profileButton" ng-click="vm.selectItem('Profile')" ui-sref-active="md-warn"
+                    ui-sref=".profile" style="text-align: left;display: block;">
+            <div class="md-tile-content">
+                <i hide-sm hide-md class="material-icons md-18">home</i> Profile
             </div>
         </md-button>
         <md-divider></md-divider>
@@ -76,12 +83,12 @@
             </div>
         </md-button>
         <md-divider></md-divider>
-        <md-button ng-click="vm.selectItem('Help')" ui-sref-active="md-warn" ui-sref=".help"
+        <!-- <md-button ng-click="vm.selectItem('Help')" ui-sref-active="md-warn" ui-sref=".help"
                    style="text-align: left;display: block;">
             <div class="md-tile-content">
                 <i hide-sm hide-md class="material-icons md-18">help</i> {{ 'nav.label.help' | translate }}
             </div>
-        </md-button>
+        </md-button> -->
     </md-content>
 </md-sidenav>
 
@@ -98,7 +105,7 @@
             </md-button>
             <md-menu-content width="3">
                 <md-menu-item>
-                    <md-button ng-click="vm.selectItem('Profile');" ui-sref=".profile">
+                    <md-button ng-click="vm.gotoProfile()">
                         <div layout="row">
                             <p flex>Profile</p>
                         </div>

@@ -2,16 +2,18 @@
     'use strict';
 
     angular.module('selfService')
-        .controller('LoanApplicationCtrl', ['$filter', '$mdToast', 'AccountService', 'LoanApplicationService', LoanApplicationCtrl]);
+        .controller('LoanApplicationCtrl', ['$scope', '$rootScope','$filter', '$mdToast', 'AccountService', 'LoanApplicationService', LoanApplicationCtrl]);
 
     /**
      * @module LoanApplicationCtrl
      * @description
      * Controls Application for Loan
      */
-    function LoanApplicationCtrl($filter, $mdToast, AccountService, LoanApplicationService) {
+    function LoanApplicationCtrl($scope, $rootScope, $filter, $mdToast, AccountService, LoanApplicationService) {
         var vm = this;
 
+        //pramod109
+        vm.reRoute = reRoute;
         vm.form = {
             locale: 'en_GB',
             dateFormat: 'dd MMMM yyyy',
@@ -77,5 +79,12 @@
                 );
             });
         }
+
+        //pramod109
+        //Method to route 'Cancel' button to 'Dashboard'
+        function reRoute(msg) {
+            $rootScope.$broadcast('dashboard', 'Dashboard');
+        }
+
     }
 })();

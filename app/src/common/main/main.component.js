@@ -1,9 +1,9 @@
 (function () {
 
     angular.module('selfService')
-        .controller('MainCtrl', ['navService', '$mdSidenav', 'AuthService', 'AccountService', MainCtrl]);
+        .controller('MainCtrl', ['$scope','navService', '$mdSidenav', 'AuthService', 'AccountService', MainCtrl]);
 
-    function MainCtrl(navService, $mdSidenav, AuthService, AccountService) {
+    function MainCtrl($scope, navService, $mdSidenav, AuthService, AccountService) {
         var vm = this;
 
         vm.menuItems = [];
@@ -12,6 +12,7 @@
         vm.toggleItemsList = toggleItemsList;
         vm.toggleRightSidebar = toggleRightSidebar;
         vm.logout = logout;
+        vm.gotoProfile = gotoProfile;
 
         vm.profile = getUserData();
 
@@ -55,6 +56,16 @@
         function logout() {
             AuthService.logout();
         }
+
+        //pramod109
+
+        function gotoProfile() {
+            angular.element('#profileButton').triggerHandler('click');
+        }
+
+        $scope.$on('dashboard', function (event, data) {
+            angular.element('#dashButton').triggerHandler('click');
+        });
 
     }
 
