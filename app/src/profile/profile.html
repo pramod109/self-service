@@ -1,3 +1,42 @@
-<h1>This is the profiles page</h1>
-<p>Allow users to change user id and password.</p>
-<p>{{vm.profile.displayName}}</p>
+<div class="md-padding" layout-align="center" flex>
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Your Profile</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-content>
+            <div>
+                <md-input-container>
+                    <label>Name</label>
+                    <input type="text" value="{{vm.profile.displayName}}" required>
+                    <md-button ng-show="vm.changeUsername" class="md-raised md-primary">Change Name</md-button>
+                </md-input-container>
+            </div>
+            <div ng-show="vm.changePassword">
+                <div>
+                <md-input-container>
+                    <label>Old Password</label>
+                    <input type="text"  required>
+                </md-input-container>
+                </div>
+                <div>
+                <md-input-container>
+                    <label>New Password</label>
+                    <input type="text"  required>
+                </md-input-container>
+                </div>
+                <div>
+                <md-input-container>
+                    <label>New Password</label>
+                    <input type="text"  required>
+                </md-input-container>
+                </div>
+                <div>
+                    <md-button ng-hide="vm.permission==false" class="md-raised md-warn">Change Password</md-button>
+                </div>
+            <div>
+        </md-card-content>
+    </md-card>
+</div>

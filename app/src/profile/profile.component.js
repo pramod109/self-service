@@ -1,11 +1,13 @@
 (function () {
     
         angular.module('selfService')
-            .controller('MainCtrl', ['$scope','navService', '$mdSidenav', 'AuthService', 'AccountService', MainCtrl]);
+            .controller('ProfileCtrl', ['$scope','navService', '$mdSidenav', 'AuthService', 'AccountService', ProfileCtrl]);
     
-        function MainCtrl($scope, navService, $mdSidenav, AuthService, AccountService) {
+        function ProfileCtrl($scope, navService, $mdSidenav, AuthService, AccountService) {
             var vm = this;
-    
+
+            vm.changePassword=false;
+            vm.changeUsername=false;
             vm.menuItems = [];
             vm.profileImage = null;
             vm.selectItem = selectItem;
@@ -13,7 +15,8 @@
             vm.toggleRightSidebar = toggleRightSidebar;
             vm.logout = logout;
             vm.gotoProfile = gotoProfile;
-    
+            vm.open = open;
+
             vm.profile = getUserData();
     
             navService.loadAllItems().then(function (menuItems) {
@@ -66,6 +69,10 @@
             $scope.$on('dashboard', function (event, data) {
                 angular.element('#dashButton').triggerHandler('click');
             });
+
+            function open() {
+
+            }
     
         }
     

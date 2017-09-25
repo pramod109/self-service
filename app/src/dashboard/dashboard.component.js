@@ -45,15 +45,47 @@
         function getDashboardData() {
             AccountService.getClientId().then(function (clientId) {
                 AccountService.getAllAccounts(clientId).get().$promise.then(function(data) {
-                    vm.dashboardData.loanAccounts = data.loanAccounts;
-                    vm.dashboardData.savingsAccounts = data.savingsAccounts;
-                    vm.dashboardData.shareAccounts = data.shareAccounts;
-                    vm.dashboardData.totalAccounts = vm.dashboardData.loanAccounts.length + vm.dashboardData.savingsAccounts.length + vm.dashboardData.shareAccounts.length
-                    vm.dashboardData.totalSavings = data.savingsAccounts.reduce(getTotalSavings, 0);
-                    vm.dashboardData.totalLoan = data.loanAccounts.reduce(getTotalLoan, 0);
-                    vm.dashboardData.loanAccountsOverview = getChartData(data.loanAccounts);
+                    //vm.dashboardData.loanAccounts = data.loanAccounts;
+                    vm.dashboardData.loanAccounts={};
+                    if (data.loanAccounts !== undefined && data.loanAccounts !== null){
+                        vm.dashboardData.loanAccounts = data.loanAccounts
+                    }
+
+                    //vm.dashboardData.savingsAccounts = data.savingsAccounts;
+                    vm.dashboardData.savingsAccounts={};
+                    if (data.savingsAccounts !== undefined && data.savingsAccounts !== null){
+                        vm.dashboardData.savingsAccounts = data.savingsAccounts
+                    }
+
+                    //vm.dashboardData.shareAccounts = data.shareAccounts;
+                    vm.dashboardData.shareAccounts={};
+                    if (data.shareAccounts !== undefined && data.shareAccounts !== null){
+                        vm.dashboardData.shareAccounts = data.shareAccounts
+                    }
+
+                    var loanAccountsLength=0;
+                    var savingsAccountsLength=0;
+                    var shareAccountsLength=0;
+
+                    if ( vm.dashboardData.loanAccounts.length !== NaN){
+                        loanAccountsLength = vm.dashboardData.loanAccounts.length;
+                    }
+
+                    if ( vm.dashboardData.savingsAccounts.length !== NaN){
+                        savingsAccountsLength = vm.dashboardData.savingsAccounts.length;
+                    }
+
+                    if ( vm.dashboardData.shareAccounts.length !== NaN){
+                        shareAccountsLength = vm.dashboardData.shareAccounts.length;
+                    }
+
+                    //vm.dashboardData.totalAccounts = vm.dashboardData.loanAccounts.length + vm.dashboardData.savingsAccounts.length + vm.dashboardData.shareAccounts.length
+                    vm.dashboardData.totalAccounts = loanAccountsLength + savingsAccountsLength + shareAccountsLength;
+                    //vm.dashboardData.totalSavings = data.savingsAccounts.reduce(getTotalSavings, 0);
+                    //vm.dashboardData.totalLoan = data.loanAccounts.reduce(getTotalLoan, 0);
+                    //vm.dashboardData.loanAccountsOverview = getChartData(data.loanAccounts);
                     vm.dashboardData.savingsAccountsOverview = getChartData(data.savingsAccounts);
-                    vm.dashboardData.shareAccountsOverview = getChartData(data.shareAccounts);
+                    //vm.dashboardData.shareAccountsOverview = getChartData(data.shareAccounts);
                 });
             })
         }

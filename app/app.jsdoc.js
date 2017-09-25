@@ -13,6 +13,7 @@
  * @property {module:TPTCtrl} TPTCtrl - Do a third party transfer.
  * @property {module:ReviewTransferDialogCtrl} ReviewTransferDialogCtrl - Review Transfer.
  * @property {module:AccountTransferCtrl} AccountTransferCtrl - Do a transfer.
+ * @property {module:confirmregisterCtrl} confirmregisterCtrl - Confirm the Registrations.
  */
 
 /**
