@@ -14,10 +14,6 @@
         this.register = function() {
             return $resource(BASE_URL + '/self/registration');
         }
-
-        // this.loan = function() {
-        //     return $resource(BASE_URL + '/self/loans');
-        // }
     }
 
 })();

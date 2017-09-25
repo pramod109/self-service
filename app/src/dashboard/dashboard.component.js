@@ -79,13 +79,14 @@
                         shareAccountsLength = vm.dashboardData.shareAccounts.length;
                     }
 
-                    //vm.dashboardData.totalAccounts = vm.dashboardData.loanAccounts.length + vm.dashboardData.savingsAccounts.length + vm.dashboardData.shareAccounts.length
+                    
+                    vm.dashboardData.totalAccounts = vm.dashboardData.loanAccounts.length + vm.dashboardData.savingsAccounts.length + vm.dashboardData.shareAccounts.length
                     vm.dashboardData.totalAccounts = loanAccountsLength + savingsAccountsLength + shareAccountsLength;
-                    //vm.dashboardData.totalSavings = data.savingsAccounts.reduce(getTotalSavings, 0);
-                    //vm.dashboardData.totalLoan = data.loanAccounts.reduce(getTotalLoan, 0);
-                    //vm.dashboardData.loanAccountsOverview = getChartData(data.loanAccounts);
+                    vm.dashboardData.totalSavings = data.savingsAccounts.reduce(getTotalSavings, 0);
+                    vm.dashboardData.totalLoan = data.loanAccounts.reduce(getTotalLoan, 0);
+                    vm.dashboardData.loanAccountsOverview = getChartData(data.loanAccounts);
                     vm.dashboardData.savingsAccountsOverview = getChartData(data.savingsAccounts);
-                    //vm.dashboardData.shareAccountsOverview = getChartData(data.shareAccounts);
+                    vm.dashboardData.shareAccountsOverview = getChartData(data.shareAccounts);
                 });
             })
         }
