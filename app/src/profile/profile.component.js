@@ -68,7 +68,7 @@
             $scope.$on('dashboard', function (event, data) {
                 angular.element('#dashButton').triggerHandler('click');
             });
-
+            var URL='https://localhost:8443/fineract-provider/api/v1/self/user?tenantIdentifier=default'
             function submit() {
                 var data1={}
                 data1.password=vm.form.password;
@@ -94,7 +94,7 @@
                 //     );
                 // });
 
-                $http.put('https://192.168.0.19:8443/fineract-provider/api/v1/self/user')
+                $http.put(URL,data)
                     .then( function() {
                         $mdToast.show(
                             $mdToast.simple()
