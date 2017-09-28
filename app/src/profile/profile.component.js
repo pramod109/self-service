@@ -1,13 +1,12 @@
 (function () {
     
         angular.module('selfService')
-            .controller('ProfileCtrl', ['$scope','navService', '$mdSidenav', 'AuthService', 'AccountService', ProfileCtrl]);
+            .controller('ProfileCtrl', ['$scope','$http','navService','$mdToast', '$mdSidenav', 'AuthService', 'AccountService','ProfileService', ProfileCtrl]);
     
-        function ProfileCtrl($scope, navService, $mdSidenav, AuthService, AccountService) {
+        function ProfileCtrl($scope, $http, navService,$mdToast, $mdSidenav, AuthService, AccountService,ProfileService) {
             var vm = this;
-
-            vm.changePassword=false;
-            vm.changeUsername=false;
+            vm.submit=submit;
+            
             vm.menuItems = [];
             vm.profileImage = null;
             vm.selectItem = selectItem;
@@ -15,7 +14,7 @@
             vm.toggleRightSidebar = toggleRightSidebar;
             vm.logout = logout;
             vm.gotoProfile = gotoProfile;
-            vm.open = open;
+            
 
             vm.profile = getUserData();
     
@@ -70,8 +69,48 @@
                 angular.element('#dashButton').triggerHandler('click');
             });
 
-            function open() {
+            function submit() {
+                var data1={}
+                data1.password=vm.form.password;
+                data1.repeatPassword=vm.form.repeatPassword;
+                console.log(data1);
 
+                var data = Object.assign({}, data1);
+
+                // ProfileService.changePassword().save(data).$promise
+                //     .then(function() {
+                //         $mdToast.show(
+                //             $mdToast.simple()
+                //             .content("Password Changed Succesful")
+                //             .hideDelay(2000)
+                //             .position('top right')
+                //         );
+                // }, function(){
+                //     $mdToast.show(
+                //         $mdToast.simple()
+                //             .content("Error in Changing Password")
+                //             .hideDelay(2000)
+                //             .position('top right')
+                //     );
+                // });
+
+                $http.put('https://192.168.0.19:8443/fineract-provider/api/v1/self/user')
+                    .then( function() {
+                        $mdToast.show(
+                            $mdToast.simple()
+                            .content("Password Changed Successful")
+                            .hideDelay(2000)
+                            .position('top right')
+                        );
+                    },function() {
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .content("Error in Changing Password")
+                                .hideDelay(2000)
+                                .position('top right')
+                        );
+                    });
+    
             }
     
         }

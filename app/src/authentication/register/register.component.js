@@ -35,6 +35,7 @@
                         .hideDelay(2000)
                         .position('top right')
                     );
+                    $state.go("confirmregister");
             });
             promise.catch( function(){
                 $mdToast.show(

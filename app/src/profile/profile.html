@@ -7,36 +7,41 @@
         </md-card-title>
         <md-divider></md-divider>
         <md-card-content>
-            <div>
-                <md-input-container>
-                    <label>Name</label>
-                    <input type="text" value="{{vm.profile.displayName}}" required>
-                    <md-button ng-show="vm.changeUsername" class="md-raised md-primary">Change Name</md-button>
-                </md-input-container>
-            </div>
-            <div ng-show="vm.changePassword">
-                <div>
-                <md-input-container>
-                    <label>Old Password</label>
-                    <input type="text"  required>
-                </md-input-container>
-                </div>
-                <div>
-                <md-input-container>
-                    <label>New Password</label>
-                    <input type="text"  required>
-                </md-input-container>
-                </div>
-                <div>
-                <md-input-container>
-                    <label>New Password</label>
-                    <input type="text"  required>
-                </md-input-container>
-                </div>
-                <div>
-                    <md-button ng-hide="vm.permission==false" class="md-raised md-warn">Change Password</md-button>
-                </div>
-            <div>
+            <md-table-container>
+                <table md-table>
+                    <tr md-row>
+                        <th>Name</th>
+                        <th><p>{{vm.profile.displayName}}</p></th>
+                    </tr>
+                    <tr md-row>
+                        <th>Account Number</th>
+                        <th><p>{{vm.profile.accountNo}}</p></th>
+                    </tr>
+                    <tr md-row>
+                        <th>Office Name</th>
+                        <th><p>{{vm.profile.officeName}}</p></th>
+                    </tr>
+                </table>
+            </md-table-container>
         </md-card-content>
+    </md-card>
+    
+    <md-button class="md-raised md-primary" ng-click="togglePassword = !togglePassword">Change Password</md-button>
+
+    <md-card ng-show="togglePassword">
+        
+        <form name="registerForm" novalidate ng-submit="vm.submit()">
+            <md-input-container class="md-block" md-no-float>
+                <input type="password" name="mobile" ng-model="vm.form.password" placeholder="New Password">
+            </md-input-container>
+            <md-input-container class="md-block" md-no-float>
+                <input type="password" name="accountNumber" ng-model="vm.form.repeatPassword" placeholder="Repeat New Password">
+            </md-input-container>
+
+            <md-button type="submit" class="md-raised md-accent submit-button" >
+                Change Password
+            </md-button>
+        </form>
+
     </md-card>
 </div>
