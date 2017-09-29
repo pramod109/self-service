@@ -46,7 +46,8 @@
         }
 
         vm.getTransactions = getTransactions(vm.query);
-
+        vm.transactionArray = [];
+        
         /**
          * @method getTransactions
          * @param query
@@ -57,6 +58,29 @@
                 TransactionService.getClientTransactions(clientId).get(query).$promise.then(function (res) {
                     vm.loadingTransactions = false;
                     vm.recenttransactions = res;
+                    console.log(vm.loadingTransactions)
+                    console.log(vm.recenttransactions.pageItems[1].amount)
+
+                   
+
+                    for (var i=0; i<vm.recenttransactions.pageItems.length;i++){
+                        var temp={};
+                        temp.id = vm.recenttransactions.pageItems[i].id;
+                        temp.type = vm.recenttransactions.pageItems[i].type.value;
+                        temp.officeName = vm.recenttransactions.pageItems[i].officeName;
+                        temp.amount = vm.recenttransactions.pageItems[i].amount;
+                        temp.date = vm.recenttransactions.pageItems[i].date[0].toString() + "/"+ 
+                                        vm.recenttransactions.pageItems[i].date[1].toString() + "/"+
+                                        vm.recenttransactions.pageItems[i].date[2].toString();
+                        
+                        console.log(temp.date);
+                        vm.transactionArray[i] = temp;
+                        
+                        vm.transactionArray.push(temp);
+                        
+                    }
+                    
+                    
                 });
             });
         }
@@ -70,6 +94,5 @@
         function onPaginate(offset,limit) {
             getTransactions(angular.extend({}, vm.query, {offset: (offset - 1) * limit, limit: limit}));
         }
-
     }
 })();

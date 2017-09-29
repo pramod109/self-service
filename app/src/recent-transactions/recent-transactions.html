@@ -1,5 +1,5 @@
 <div class="datatable-cont md-padding">
-
+       
         <md-card>
             <md-card-title>
                 <md-card-title-text>
@@ -44,4 +44,7 @@
                                      md-total="{{vm.recenttransactions.totalFilteredRecords}}" md-page-select></md-table-pagination>
             </md-card-content>
         </md-card>
+        <md-button class="md-raised md-primary" type="button" ng-csv="vm.transactionArray" 
+        csv-header="['Id', 'Type', 'Office Name', 'Amount', 'Date' ]" filename="test.csv">Export</md-button>
+        
     </div>

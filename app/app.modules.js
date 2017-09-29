@@ -10,7 +10,8 @@
         'ngMaterial',
         'nvd3',
         'md.data.table',
-        'pascalprecht.translate'
+        'pascalprecht.translate',
+        'ngCsv'
     ])
 
 })();

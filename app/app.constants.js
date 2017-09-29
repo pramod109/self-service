@@ -3,8 +3,9 @@
 
     angular.module('selfService')
 
-        .constant("BASE_URL", "https://192.168.0.19:8443/fineract-provider/api/v1")
-
+        .constant("BASE_URL", "https://demo.openmf.org/fineract-provider/api/v1")
+        //"https://demo.openmf.org/fineract-provider/api/v1"
+        //https://192.168.0.19:8443/fineract-provider/api/v1
         .constant("TENANT_IDENTIFIER", "default")
 
         .constant('AUTH_EVENTS', {
