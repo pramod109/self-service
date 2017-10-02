@@ -1,9 +1,9 @@
 (function () {
     
         angular.module('selfService')
-            .controller('ProfileCtrl', ['$scope','$http','navService','$mdToast', '$mdSidenav', 'AuthService', 'AccountService','ProfileService', ProfileCtrl]);
+            .controller('ProfileCtrl', ['BASE_URL','$scope','$http','navService','$mdToast', '$mdSidenav', 'AuthService', 'AccountService','ProfileService', ProfileCtrl]);
     
-        function ProfileCtrl($scope, $http, navService,$mdToast, $mdSidenav, AuthService, AccountService,ProfileService) {
+        function ProfileCtrl(BASE_URL,$scope, $http, navService,$mdToast, $mdSidenav, AuthService, AccountService,ProfileService) {
             var vm = this;
             vm.submit=submit;
             
@@ -68,7 +68,7 @@
             $scope.$on('dashboard', function (event, data) {
                 angular.element('#dashButton').triggerHandler('click');
             });
-            var URL='https://localhost:8443/fineract-provider/api/v1/self/user?tenantIdentifier=default'
+            var URL = BASE_URL + '/self/user?tenantIdentifier=default'
             function submit() {
                 var data1={}
                 data1.password=vm.form.password;
