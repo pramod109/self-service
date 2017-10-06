@@ -18,7 +18,7 @@
             var data1={}
             data1.requestId=vm.form.requestId;
             data1.authenticationToken=vm.form.authenticationToken;
-            console.log(data1);
+            
 
             var data = Object.assign({}, data1);
             ConfirmRegisterService.confirmregister().save(data).$promise

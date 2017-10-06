@@ -24,7 +24,7 @@
             data1.password=vm.form.password;
             data1.authenticationMode='email';
             data1.email=vm.form.email;
-            console.log(data1);
+            
 
             var data = Object.assign({}, data1);
            var promise =  RegisterService.register().save(data).$promise;

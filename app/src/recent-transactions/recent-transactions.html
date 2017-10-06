@@ -44,7 +44,20 @@
                                      md-total="{{vm.recenttransactions.totalFilteredRecords}}" md-page-select></md-table-pagination>
             </md-card-content>
         </md-card>
-        <md-button class="md-raised md-primary" type="button" ng-csv="vm.transactionArray" 
-        csv-header="['Id', 'Type', 'Office Name', 'Amount', 'Date' ]" filename="test.csv">Export</md-button>
-        
+        <div >
+            <div layout="row">
+                <md-input-container class="md-block">
+                    <label>DD/MM/YYYY</label>
+                    <input type="text"  ng-model="vm.fromDate" required>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>DD/MM/YYYY</label>
+                    <input type="text" ng-model="vm.toDate" required>
+                </md-input-container>
+            </div>
+                <md-button class="md-raised md-primary" type="button" ng-csv="vm.transactionArray" 
+                csv-header="['Id', 'Type', 'Office Name', 'Amount', 'Date' ]" filename="test.csv">Export
+            </md-button>
+        </div>
     </div>
