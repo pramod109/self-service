@@ -82,11 +82,23 @@
          */
         function getAccounts(clientId) {
             AccountService.getAllAccounts(clientId).get().$promise.then(function (res) {
-                vm.loanAccounts = res.loanAccounts;
-                vm.savingsAccounts = res.savingsAccounts;
-                vm.shareAccounts = res.shareAccounts;
+                if(res.loanAccounts != null && res.loanAccounts != undefined) {
+                    vm.loanAccounts = res.loanAccounts;
+                }
+                //vm.loanAccounts = res.loanAccounts;
+                
+                if(res.savingsAccounts != null && res.savingsAccounts != undefined) {
+                    vm.savingsAccounts = res.savingsAccounts;
+                }
+                //vm.savingsAccounts = res.savingsAccounts;
+
+                if(res.shareAccounts != null && res.shareAccounts != undefined) {
+                    vm.shareAccounts = res.shareAccounts;
+                }
+                //vm.shareAccounts = res.shareAccounts;
+                
                 vm.loadingAccountInfo = false;
-            });
+            }).catch(angular.noop);
         }
 
         /**

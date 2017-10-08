@@ -51,7 +51,7 @@
                 vm.loadingLoanAccountInfo = false;
                 vm.loanAccountDetails = res;
                 getStatusClass();
-            });
+            }).catch(angular.noop);
         }
 
         /**

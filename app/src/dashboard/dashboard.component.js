@@ -79,8 +79,9 @@
                     vm.dashboardData.loanAccountsOverview = getChartData(data.loanAccounts);
                     vm.dashboardData.savingsAccountsOverview = getChartData(data.savingsAccounts);
                     vm.dashboardData.shareAccountsOverview = getChartData(data.shareAccounts);
-                });
-            })
+                    
+                }).catch(angular.noop);
+            }).catch(angular.noop);
         }
 
         /**
@@ -120,19 +121,25 @@
          * @returns {Array}
          */
         function getChartData(accounts) {
-            var chartObj = {};
-            accounts.map(function(acc) {
-               chartObj[acc.status.value] = (chartObj[acc.status.value]) ? chartObj[acc.status.value] + 1: 1;
-            });
             var chartData  = [];
-            var keys = Object.keys(chartObj);
-            for (var i in keys) {
-                chartData.push({
-                    key: keys[i],
-                    y: chartObj[keys[i]]
+            if (accounts != undefined) {
+                
+                var chartObj = {};
+                accounts.map(function(acc) {
+                    chartObj[acc.status.value] = (chartObj[acc.status.value]) ? chartObj[acc.status.value] + 1: 1;
                 });
+                
+                var keys = Object.keys(chartObj);
+                for (var i in keys) {
+                    chartData.push({
+                        key: keys[i],
+                        y: chartObj[keys[i]]
+                    });
+                }
+                return chartData;
+            }else{
+                return charData;
             }
-            return chartData;
         }
     }
 })();

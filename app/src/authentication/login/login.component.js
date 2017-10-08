@@ -53,8 +53,8 @@
                                 .position('top right')
                         );
                         AuthService.logout();
-                    })
-            });
+                    });
+            }).catch(angular.noop);
         }
 
     }

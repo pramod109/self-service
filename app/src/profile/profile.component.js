@@ -40,19 +40,19 @@
                     vm.clientId = clientId;
                     getClient(clientId);
                     getClientImage(clientId);
-                });
+                }).catch(angular.noop);
             }
     
             function getClient(clientId) {
                 AccountService.getClient(clientId).get().$promise.then( function (data) {
                     vm.profile = data;
-                })
+                }).catch(angular.noop);
             }
     
             function getClientImage(clientId) {
                 AccountService.getClientImage(clientId).then( function (resp) {
                     vm.profileImage = resp.data;
-                })
+                }).catch(angular.noop);
             }
     
             function logout() {
@@ -109,7 +109,7 @@
                                 .hideDelay(2000)
                                 .position('top right')
                         );
-                    });
+                    }).catch(angular.noop);
     
             }
     

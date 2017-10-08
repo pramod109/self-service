@@ -54,7 +54,7 @@
 					vm.savingsAccountDetails = res;
 					vm.transactions = res.transactions;
 					getStatusClass();
-				});
+				}).catch(angular.noop);
 			}
 
             /**

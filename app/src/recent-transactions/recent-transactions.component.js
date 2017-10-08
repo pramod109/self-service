@@ -58,8 +58,8 @@
                 TransactionService.getClientTransactions(clientId).get(query).$promise.then(function (res) {
                     vm.loadingTransactions = false;
                     vm.recenttransactions = res;
-                    console.log(vm.loadingTransactions)
-                    console.log(vm.recenttransactions.pageItems[1].amount)
+                    //console.log(vm.loadingTransactions)
+                    //console.log(vm.recenttransactions.pageItems[1].amount)
 
                    
 
@@ -73,7 +73,7 @@
                                         vm.recenttransactions.pageItems[i].date[1].toString() + "/"+
                                         vm.recenttransactions.pageItems[i].date[2].toString();
                         
-                        console.log(temp.date);
+                        //console.log(temp.date);
                         vm.transactionArray[i] = temp;
                         
                         vm.transactionArray.push(temp);
