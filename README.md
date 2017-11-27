@@ -10,6 +10,7 @@ Install dependencies:
 
     $ cd self-service
     $ npm install
+    $ npm install -g gulp
     $ bower install
 
 Install gem 'sass'
