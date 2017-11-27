@@ -42,6 +42,7 @@
                                     .position('top right')
                             );
                             AuthService.logout();
+                            
                         }
                     })
                     .catch(function () {
@@ -53,6 +54,7 @@
                                 .position('top right')
                         );
                         AuthService.logout();
+                        
                     });
             }).catch(angular.noop);
         }

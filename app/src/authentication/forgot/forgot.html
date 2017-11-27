@@ -7,7 +7,7 @@
 
             <div class="title">Recover your password</div>
 
-            <form name="forgotPasswordForm" novalidate>
+            <form name="forgotPasswordForm" novalidate ng-submit="vm.submit()">
                 <md-input-container class="md-block" md-no-float>
                     <input type="email" name="email" ng-model="vm.form.email" placeholder="Email address"
                            ng-pattern="/^.+@.+\..+$/" required>
