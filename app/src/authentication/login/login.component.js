@@ -42,7 +42,7 @@
                                     .position('top right')
                             );
                             AuthService.logout();
-                            
+                            $state.go("login");    
                         }
                     })
                     .catch(function () {

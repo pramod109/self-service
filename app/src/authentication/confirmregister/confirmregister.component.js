@@ -28,7 +28,9 @@
                         .content("Registration Successful")
                         .hideDelay(2000)
                         .position('top right')
+                        
                     );
+                    $state.go("login");
             }, function(){
                 $mdToast.show(
                     $mdToast.simple()
@@ -36,6 +38,7 @@
                         .hideDelay(2000)
                         .position('top right')
                 );
+                $state.go("login");
             });
 
         }
