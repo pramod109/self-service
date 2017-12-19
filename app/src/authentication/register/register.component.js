@@ -25,31 +25,39 @@
             data1.authenticationMode='email';
             data1.email=vm.form.email;
             
-
             var data = Object.assign({}, data1);
-           var promise =  RegisterService.register().save(data).$promise;
-                promise.then(function() {
-                    $mdToast.show(
-                        $mdToast.simple()
+            var promise =  RegisterService.register().save(data).$promise;
+            promise.then(function() {
+                $mdToast.show(
+                    $mdToast.simple()
                         .content("Registration Successful")
                         .hideDelay(2000)
                         .position('top right')
-                    );
-                    $state.go("confirmregister");
-            });
-            promise.catch( function(){
-                $mdToast.show(
-                    $mdToast.simple()
-                        .content("Error in Registration")
-                        .hideDelay(2000)
-                        .position('top right')
                 );
+                $state.go("login");
             });
-            
+            promise.catch( function(res){
+                if(res.status == 403){
+                    //console.log("Username Already Exists!")
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .content("Username Already Exists! Please choose a Different Username.")
+                            .hideDelay(3000)
+                            .position('top right')
+                    );
+                }
+                else{
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .content("Error in Registration. Try again with valid Details.")
+                            .hideDelay(2000)
+                            .position('top right')
+                    );
+                }
+                //console.log(res.status);
+                //$state.go("login");
+            });
         }
-
-        
-
     }
 
 })();
