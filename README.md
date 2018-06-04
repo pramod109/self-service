@@ -4,7 +4,7 @@
 
 Clone the project:
 
-    $ git clone https://github.com/gauravsaini03/self-service.git
+    $ git clone https://github.com/pramod109/self-service.git
 
 Install dependencies:
 
@@ -35,3 +35,7 @@ Run development web-server:
 
     $ gulp build
     $ gulp deploy
+
+## Screenshot
+
+![project7 2](https://user-images.githubusercontent.com/25020379/40933159-4e296684-67f6-11e8-9627-5e97ccd40391.png)
