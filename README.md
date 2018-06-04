@@ -35,3 +35,5 @@ Run development web-server:
 
     $ gulp build
     $ gulp deploy
+
+![project7 2](https://user-images.githubusercontent.com/25020379/40933159-4e296684-67f6-11e8-9627-5e97ccd40391.png)
